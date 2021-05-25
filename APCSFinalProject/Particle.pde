@@ -23,4 +23,28 @@ public class Particle{
     radius = r;
     mass = m;
   }
+  
+  public float getXcor(){
+    return xcor;
+  }
+  
+  public float getYcor(){
+    return ycor;
+  }
+  
+  public float getXvel(){
+    return xvel;
+  }
+  
+  public float getYvel(){
+    return yvel;
+  }
+
+  public float getRadius(){
+    return radius;
+  }
+  
+  public float getMass(){
+    return mass;
+  }
 }
