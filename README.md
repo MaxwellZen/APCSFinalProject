@@ -2,7 +2,7 @@
 
 Google Doc: https://docs.google.com/document/d/1TAdbzErmyPTm-VrRlXJPJDjRmklgNQ92MiTY7oRVVT0/edit?usp=sharing \
 \
-UML Diagram: https://online.visual-paradigm.com/share.jsp?id=313432333837322d31
+UML Diagram: https://online.visual-paradigm.com/share.jsp?id=313432333837322d31 \
 \
 Group Name: Springing into Action\
 \
