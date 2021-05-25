@@ -17,4 +17,24 @@ public class Spring{
     restLen=len;
   }
   
+  public Particle getP1() {
+    
+  }
+  
+  public Particle getP2() {
+    
+  }
+  
+  public float getRestLen() {
+    
+  }
+  
+  public float getSpringConstant() {
+    
+  }
+  
+  public void updateForce() {
+    
+  }
+  
 }
