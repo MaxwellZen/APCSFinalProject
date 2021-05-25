@@ -47,4 +47,16 @@ public class Particle{
   public float getMass(){
     return mass;
   }
+  
+  public void applyForce(float fx, float fy){
+    float time = Stage.time;
+    xvel += time * fx / mass;
+    yvel += time * fy / mass;
+  }
+  
+  public void updatePosition(){
+    float time = Stage.time;
+    xcor += time * xvel;
+    ycor += time * yvel;
+  }
 }
