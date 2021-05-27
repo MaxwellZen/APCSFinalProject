@@ -15,11 +15,11 @@ public class Point {
     return y;
   }
   
-  public float setX(float newX) {
+  public void setX(float newX) {
     x=newX;
   }
   
-  public float setY(float newY) {
+  public void setY(float newY) {
     y=newY;
   }
   
