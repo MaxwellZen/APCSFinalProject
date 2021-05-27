@@ -52,6 +52,13 @@ public class Particle{
     cor = cor.plus(new Point(time*vel.getX(), time*vel.getY()));
   }
   
+  public void bounceFloor(){
+    if(cor.getY() > height){
+      cor.setY(height - radius);
+      vel.setY(-vel.getY());
+    }
+  }
+  
   public void display(){
     stroke(0);
     fill(#5582FF); //Light blue
