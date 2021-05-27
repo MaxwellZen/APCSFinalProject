@@ -39,6 +39,7 @@ public class SoftBody{
     for (Particle p : particleArr){
       p.applyForce(0, Stage.g);
       p.updatePosition();
+      p.bounceFloor();
     }
   }
   
