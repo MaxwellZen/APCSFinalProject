@@ -26,4 +26,8 @@ Maxwell: Worked on the Spring class, including the constructors, get methods, an
 \
 Maxwell: Created the Stage class and filled in the static variables and methods. Also refined the rectangular constructor, fixed a Spring.updateForce() bug, and changed the test case to demonstrate motion of the soft body. \
 \
-Jerry: Wrote and tested display method for Particle, Spring, and SoftBody classes. Wrote rectangular constructor for SoftBody class and also fixed error with static class with Maxwell. Outside of coding, also updated UML diagram to fit current structure.
+Jerry: Wrote and tested display method for Particle, Spring, and SoftBody classes. Wrote rectangular constructor for SoftBody class and also fixed error with static class with Maxwell. Outside of coding, also updated UML diagram to fit current structure.\
+\
+5/27:\
+\
+Jerry: Simulate gravity in SoftBody and added static variable g (for gravity) in Stage. Preliminary simulations of particles bouncing off floor (wrote bounceFloor() method). Oustide of coding, updated UML diagram to fit revised structure.
