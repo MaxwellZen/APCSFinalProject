@@ -12,7 +12,7 @@ public class Particle{
     xvel = 0;
     yvel = 0;
     radius = 10;
-    mass = 10;
+    mass = 0.1;
   }
   
   public Particle(float x, float y, float r, float m){
