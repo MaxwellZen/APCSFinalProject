@@ -24,4 +24,6 @@ Maxwell: Worked on the Spring class, including the constructors, get methods, an
 \
 5/26: \
 \
-Maxwell: Created the Stage class and filled in the static variables and methods.
+Maxwell: Created the Stage class and filled in the static variables and methods.\
+\
+Jerry: Wrote and tested display method for Particle, Spring, and SoftBody classes. Wrote rectangular constructor for SoftBody class and also fixed error with static class with Maxwell. Outside of coding, also updated UML diagram to fit current structure.
