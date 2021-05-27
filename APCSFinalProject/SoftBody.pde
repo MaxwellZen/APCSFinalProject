@@ -17,9 +17,9 @@ public class SoftBody{
       if(i % numRow != 0){
         springArr.add(new Spring(particleArr.get(i-1), particleArr.get(i), k));
       }
-      else{
+    }
+    for(int i = numRow; i < particleArr.size(); i++){
         springArr.add(new Spring(particleArr.get(i - numRow), particleArr.get(i), k));
-      }
     }
   }
   
