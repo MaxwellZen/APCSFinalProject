@@ -30,4 +30,4 @@ Jerry: Wrote and tested display method for Particle, Spring, and SoftBody classe
 \
 5/27:\
 \
-Jerry: Simulate gravity in SoftBody and added static variable g (for gravity) in Stage. Preliminary simulations of particles bouncing off floor (wrote bounceFloor() method). Oustide of coding, updated UML diagram to fit revised structure.
+Jerry: Simulate gravity in SoftBody and added static variable g (for gravity) in Stage. Preliminary simulations of particles bouncing off floor (wrote bounceFloor() method). Outside of coding, updated UML diagram to fit revised structure.
