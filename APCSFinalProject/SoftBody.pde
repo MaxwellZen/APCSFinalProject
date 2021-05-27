@@ -4,19 +4,21 @@ public class SoftBody{
   
   public SoftBody(float x, float y, float l, float w, float d, float k){
     particleArr = new ArrayList<Particle>();
+    springArr = new ArrayList<Spring>();
     float gap = 40 - 15 * d;
-    for(float i = x; i < x + l; i += gap){
-      for(float j = y; j < y + w; j += gap){
+    for(float i = x; i <= x + l; i += gap){
+      for(float j = y; j <= y + w; j += gap){
         particleArr.add(new Particle(i,j));
       }
     }
-    int numCol = 1 + int(l / gap);
+    int numRow = 1 + int(w / gap);
+    println(numRow);
     for(int i = 1; i < particleArr.size(); i++){
-      if(i % numCol != 0){
+      if(i % numRow != 0){
         springArr.add(new Spring(particleArr.get(i-1), particleArr.get(i), k));
       }
       else{
-        springArr.add(new Spring(particleArr.get(i - numCol), particleArr.get(i), k));
+        springArr.add(new Spring(particleArr.get(i - numRow), particleArr.get(i), k));
       }
     }
   }
