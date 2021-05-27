@@ -18,9 +18,9 @@ static class Stage {
   }
   
   static void addSoftBody(float x, float y, 
-                          float length, float width, 
+                          float len, float wid, 
                           float density, float springConstant) {
-    softBodies.add(new SoftBody(x, y, length, width, density, springConstant));
+    //softBodies.add(new SoftBody(x, y, len, wid, density, springConstant));
   }
   
 }
