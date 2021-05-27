@@ -36,7 +36,10 @@ public class SoftBody{
   }
   
   public void updateParticles(){
-    for (Particle p : particleArr) p.updatePosition();
+    for (Particle p : particleArr){
+      p.applyForce();
+      p.updatePosition();
+    }
   }
   
   public void display(){
