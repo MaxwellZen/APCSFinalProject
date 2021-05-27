@@ -12,7 +12,6 @@ public class SoftBody{
       }
     }
     int numRow = 1 + int(w / gap);
-    println(numRow);
     for(int i = 1; i < particleArr.size(); i++){
       if(i % numRow != 0){
         springArr.add(new Spring(particleArr.get(i-1), particleArr.get(i), k));
