@@ -1,43 +1,37 @@
 public class Particle{
-  float xcor;
-  float ycor;
-  float xvel;
-  float yvel;
+  Point cor;
+  Point vel;
   float radius;
   float mass;
   
   public Particle(float x, float y){
-    xcor = x;
-    ycor = y;
-    xvel = 0;
-    yvel = 0;
+    cor = new Point(x, y);
+    vel = new Point(0, 0);
     radius = 10;
     mass = 0.1;
   }
   
   public Particle(float x, float y, float r, float m){
-    xcor = x;
-    ycor = y;
-    xvel = 0;
-    yvel = 0;
+    cor = new Point(x, y);
+    vel = new Point(0, 0);
     radius = r;
     mass = m;
   }
   
   public float getXcor(){
-    return xcor;
+    return cor.getX();
   }
   
   public float getYcor(){
-    return ycor;
+    return cor.getY();
   }
   
   public float getXvel(){
-    return xvel;
+    return vel.getX();
   }
   
   public float getYvel(){
-    return yvel;
+    return vel.getY();
   }
 
   public float getRadius(){
@@ -50,19 +44,17 @@ public class Particle{
   
   public void applyForce(float fx, float fy){
     float time = Stage.time;
-    xvel += time * fx / mass;
-    yvel += time * fy / mass;
+    vel = vel.plus(new Point(time*fx/mass, time*fy/mass));
   }
   
   public void updatePosition(){
     float time = Stage.time;
-    xcor += time * xvel;
-    ycor += time * yvel;
+    cor = cor.plus(new Point(time*vel.getX(), time*vel.getY()));
   }
   
   public void display(){
     stroke(0);
     fill(#5582FF); //Light blue
-    circle(xcor, ycor, radius);
+    circle(cor.getX(), cor.getY(), radius);
   }
 }
