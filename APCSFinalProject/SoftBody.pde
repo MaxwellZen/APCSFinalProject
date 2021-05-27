@@ -5,7 +5,7 @@ public class SoftBody{
   public SoftBody(float x, float y, float l, float w, float d, float k){
     particleArr = new ArrayList<Particle>();
     springArr = new ArrayList<Spring>();
-    float gap = 40 - 15 * d;
+    float gap = 20 / d;
     for(float i = x; i <= x + l; i += gap){
       for(float j = y; j <= y + w; j += gap){
         particleArr.add(new Particle(i,j));
@@ -25,11 +25,11 @@ public class SoftBody{
   
   
   public void updateSprings(){
-  
+    for (Spring s : springArr) s.updateForce();
   }
   
   public void updateParticles(){
-  
+    for (Particle p : particleArr) p.updatePosition();
   }
   
   public void display(){
