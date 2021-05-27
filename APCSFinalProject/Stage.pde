@@ -1,15 +1,15 @@
-static class Stage {
+public static class Stage {
   static float time = 0;
   static long prev = 0;
   static ArrayList<SoftBody> softBodies = new ArrayList<SoftBody>();
   
-  static void updateTime() {
+  public static void updateTime() {
     long current = System.currentTimeMillis();
     time = (current - prev) / 1000.0;
     prev=current;
   }
   
-  static void updateSoftBodies() {
+  public static void updateSoftBodies() {
     for (SoftBody s : softBodies) {
       s.updateSprings();
       s.updateParticles();
@@ -17,10 +17,10 @@ static class Stage {
     }
   }
   
-  static void addSoftBody(float x, float y, 
+  public static void addSoftBody(float x, float y, 
                           float len, float wid, 
                           float density, float springConstant) {
-    //softBodies.add(new SoftBody(x, y, len, wid, density, springConstant));
+    softBodies.add(new APCSFinalProject().new SoftBody(x, y, len, wid, density, springConstant));
   }
   
 }
