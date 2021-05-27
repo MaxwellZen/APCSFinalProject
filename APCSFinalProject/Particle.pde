@@ -11,8 +11,8 @@ public class Particle{
     ycor = y;
     xvel = 0;
     yvel = 0;
-    radius = 5;
-    mass = 5;
+    radius = 10;
+    mass = 10;
   }
   
   public Particle(float x, float y, float r, float m){
@@ -58,5 +58,11 @@ public class Particle{
     float time = Stage.time;
     xcor += time * xvel;
     ycor += time * yvel;
+  }
+  
+  public void display(){
+    stroke(0);
+    fill(#5582FF); //Light blue
+    circle(xcor, ycor, radius);
   }
 }
