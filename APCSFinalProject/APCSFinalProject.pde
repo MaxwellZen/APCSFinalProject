@@ -12,6 +12,7 @@ void setup(){
   sb1 = new SoftBody(25,25,200,300,1,0.5);
   sb1.display();
   Stage.updateTime();
+  Stage.updateGravity(5);
 }
 
 void draw(){
