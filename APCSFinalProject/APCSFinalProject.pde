@@ -6,7 +6,7 @@ void setup(){
   s1.display();
   p1.display();
   p2.display();
-  SoftBody sb1 = new SoftBody(25,20,200,300,1,0.5);
+  SoftBody sb1 = new SoftBody(25,25,200,300,1,0.5);
   sb1.display();
 }
 
