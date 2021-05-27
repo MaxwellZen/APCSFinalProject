@@ -40,4 +40,8 @@ public class Spring{
     p2.applyForce(kx * (p1.getXcor()-p2.getXcor())/curDist, kx * (p1.getYcor()-p2.getYcor()));
   }
   
+  public void display(){
+    stroke(0);
+    line(p1.getXcor(), p1.getYcor(), p2.getXcor(), p2.getYcor());
+  }
 }
