@@ -32,4 +32,8 @@ Jerry: Wrote and tested display method for Particle, Spring, and SoftBody classe
 \
 Jerry: Simulate gravity in SoftBody and added static variable g (for gravity) in Stage. Preliminary simulations of particles bouncing off floor (wrote bounceFloor() method). Outside of coding, updated UML diagram to fit revised structure. \
 \
-Maxwell: Created the Point class, changed the Particle class to use the Point class to represent position and velocity, and wrote methods for the Point class that will be useful for future calculations (such as spring dampening and particle collision, which we are going to implement soon).
+Maxwell: Created the Point class, changed the Particle class to use the Point class to represent position and velocity, and wrote methods for the Point class that will be useful for future calculations (such as spring dampening and particle collision, which we are going to implement soon). \
+\
+5/29: \
+\
+Maxwell: Made minor changes, including: dist, distsq, and reflect functions for Point, editing display radius and floor collisions for Particle, and fixing gravity calculation in SoftBody.
