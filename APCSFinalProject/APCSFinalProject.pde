@@ -9,7 +9,7 @@ void setup(){
   s1.display();
   p1.display();
   p2.display();
-  sb1 = new SoftBody(25,25,200,300,0.3,10);
+  sb1 = new SoftBody(25,25,200,300,0.5,10);
   sb1.display();
   Stage.updateTime();
   Stage.updateGravity(50);
