@@ -32,6 +32,10 @@ public class Point {
     y=newY;
   }
   
+  public float magnitude(){
+    return sqrt(sq(x) + sq(y));
+  }
+  
   public float distsq(Point other) {
     return sq(x-other.getX()) + sq(y-other.getY());
   }
