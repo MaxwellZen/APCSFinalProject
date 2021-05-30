@@ -12,7 +12,7 @@ void setup(){
   sb1 = new SoftBody(25,25,200,300,0.3,10);
   sb1.display();
   Stage.updateTime();
-  Stage.updateGravity(5);
+  Stage.updateGravity(50);
   println(new Point(2, 3).reflect(new Point(1, 0)));
 }
 
