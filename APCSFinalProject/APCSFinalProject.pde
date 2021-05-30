@@ -13,6 +13,7 @@ void setup(){
   sb1.display();
   Stage.updateTime();
   Stage.updateGravity(5);
+  println(new Point(2, 3).reflect(new Point(1, 0)));
 }
 
 void draw(){

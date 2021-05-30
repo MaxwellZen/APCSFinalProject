@@ -12,6 +12,10 @@ public class Point {
     this.y = y;
   }
   
+  public String toString() {
+    return "(" + x + ", " + y + ")";
+  }
+  
   public float getX() {
     return x;
   }
@@ -59,6 +63,11 @@ public class Point {
     ans[0]=normalized.scale(dot(normalized));
     ans[1]=minus(ans[0]);
     return ans;
+  }
+  
+  public Point reflect(Point other) {
+    Point normalized = other.normalize();
+    return minus(normalized.scale(2 * dot(normalized)));
   }
   
 }
