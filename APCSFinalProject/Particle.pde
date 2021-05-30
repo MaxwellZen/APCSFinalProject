@@ -7,7 +7,7 @@ public class Particle{
   public Particle(float x, float y){
     cor = new Point(x, y);
     vel = new Point(0, 0);
-    radius = 10;
+    radius = 5;
     mass = 0.1;
   }
   
@@ -53,7 +53,7 @@ public class Particle{
   }
   
   public void bounceFloor(){
-    if(cor.getY() > height){
+    if(cor.getY()+radius > height){
       cor.setY(height - radius);
       vel.setY(-vel.getY());
     }
@@ -62,6 +62,6 @@ public class Particle{
   public void display(){
     stroke(0);
     fill(#5582FF); //Light blue
-    circle(cor.getX(), cor.getY(), radius);
+    circle(cor.getX(), cor.getY(), 2*radius);
   }
 }
