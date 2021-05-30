@@ -32,6 +32,14 @@ public class Point {
     y=newY;
   }
   
+  public float distsq(Point other) {
+    return sq(x-other.getX()) + sq(y-other.getY());
+  }
+  
+  public float dist(Point other) {
+    return sqrt(distsq(other));
+  }
+  
   public float dot(Point other) {
     return this.x*other.x + this.y*other.y;
   }
@@ -53,7 +61,7 @@ public class Point {
   }
   
   public Point normalize() {
-    float invsqrt = 1 / dist(0, 0, x, y);
+    float invsqrt = 1 / sqrt(sq(x)+sq(y));
     return new Point(this.x*invsqrt, this.y*invsqrt);
   }
   
