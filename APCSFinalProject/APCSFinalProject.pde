@@ -19,7 +19,7 @@ void setup(){
   p4.display();
   p5.collideParticle(p6);
   println(p6.getYcor());
-  sb1 = new SoftBody(25,25,200,300,0.4,10);
+  sb1 = new SoftBody(25,25,200,300,1,100);
   sb1.display();
   Stage.updateTime();
   Stage.updateGravity(50);
