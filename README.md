@@ -36,4 +36,10 @@ Maxwell: Created the Point class, changed the Particle class to use the Point cl
 \
 5/29: \
 \
-Maxwell: Made minor changes, including: dist, distsq, and reflect functions for Point, editing display radius and floor collisions for Particle, and fixing gravity calculation in SoftBody.
+Maxwell: Made minor changes, including: dist, distsq, and reflect functions for Point, editing display radius and floor collisions for Particle, and fixing gravity calculation in SoftBody. \
+\
+Jerry: N/A \
+\
+5/30: \
+\
+Jerry: Wrote methods to simulate perfectly elastic collisions between particles. Also factored in air friction for particles. Tested collisions and effects of air friction.
