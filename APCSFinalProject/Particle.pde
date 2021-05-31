@@ -97,4 +97,8 @@ public class Particle{
       other.vel = parallelVel2.scale((m2 - m1) / (m1 + m2)).plus(parallelVel1.scale(2 * m1 / (m1 + m2))).plus(normalVel2);
     }
   }
+  
+  public void applyAirFriction(){
+    applyForce(-vel.getX() * Stage.airFriction * 0.005, -vel.getY() * Stage.airFriction * 0.005);
+  }
 }
