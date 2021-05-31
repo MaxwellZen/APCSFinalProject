@@ -7,7 +7,7 @@ public class Particle{
   public Particle(float x, float y){
     cor = new Point(x, y);
     vel = new Point(0, 0);
-    radius = 5;
+    radius = 7;
     mass = 0.1;
   }
   
@@ -84,6 +84,7 @@ public class Particle{
   }
   
   public void collideParticle(Particle other){
+    if (cor.distsq(other.cor)==0) return;
     if(sq(radius + other.radius) >= cor.distsq(other.cor)){
       other.cor = other.cor.minus(this.cor).scale((radius + other.radius) / cor.dist(other.cor)).plus(this.cor);
       Point parallelVel1 = vel.components(other.cor.minus(this.cor))[0];

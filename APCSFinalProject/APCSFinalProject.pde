@@ -22,7 +22,7 @@ void setup(){
   sb1 = new SoftBody(25,25,200,300,1,60);
   sb1.display();
   Stage.updateTime();
-  Stage.updateGravity(50);
+  Stage.updateGravity(100);
   Stage.updateAirFriction(1);
   println(new Point(2, 3).reflect(new Point(1, 0)));
 }

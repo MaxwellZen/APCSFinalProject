@@ -37,7 +37,7 @@ public class SoftBody{
   
   public void updateParticles(){
     for(int i = 0; i < particleArr.size(); i++){
-      for(int j = i + 1; j < particleArr.size(); j++){
+      for(int j = 0; j < i; j++){
         particleArr.get(i).collideParticle(particleArr.get(j));
       }
       particleArr.get(i).applyForce(0, particleArr.get(i).getMass()*Stage.g);
