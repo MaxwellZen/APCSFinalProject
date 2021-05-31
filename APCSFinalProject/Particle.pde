@@ -18,6 +18,7 @@ public class Particle{
     mass = m;
   }
   
+  //For testing only
   public Particle(float x, float y, float vx, float vy, boolean type){
     if(type == true){
       cor = new Point(x, y);
