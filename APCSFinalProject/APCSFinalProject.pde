@@ -2,6 +2,7 @@ Particle p1, p2, p3, p4, p5, p6, p7, p8;
 Spring s1;
 SoftBody sb1;
 void setup(){
+  frameRate(200);
   size(1000, 600);
   p1 = new Particle(500,400);
   p2 = new Particle(530,480);
@@ -27,8 +28,9 @@ void setup(){
   println(new Point(2, 3).reflect(new Point(1, 0)));
 }
 
-void draw(){
-  background(200);
+void draw() {
+  println(frameRate);
+  background(230);
   Stage.updateTime();
   s1.updateForce();
   p1.updatePosition();

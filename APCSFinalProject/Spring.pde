@@ -37,13 +37,12 @@ public class Spring{
   
   public void updateForce() {
     float curDist = p1.getCor().dist(p2.getCor());
-    float kx = springConstant * (curDist - restLen);
+    if (curDist==0) return;
     Point norm = p2.getCor().minus(p1.getCor()).normalize();
-    Point f1 = norm.scale(kx + dampening*norm.dot(p2.getVel().minus(p1.getVel())));
+    float Fs = springConstant * (curDist-restLen) + dampening*norm.dot(p2.getVel().minus(p1.getVel()));
+    Point f1 = norm.scale(Fs);
     p1.applyForce(f1.getX(), f1.getY());
     p2.applyForce(-f1.getX(), -f1.getY());
-    //p1.applyForce(kx * (p2.getXcor()-p1.getXcor())/curDist, kx * (p2.getYcor()-p1.getYcor()) / curDist);
-    //p2.applyForce(kx * (p1.getXcor()-p2.getXcor())/curDist, kx * (p1.getYcor()-p2.getYcor()) / curDist);
   }
   
   public void display(){

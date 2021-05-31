@@ -78,8 +78,8 @@ public class Particle{
   }
   
   public void display(){
-    stroke(0);
-    fill(#5582FF); //Light blue
+    noStroke();
+    fill(#0044ff); //Light blue
     circle(cor.getX(), cor.getY(), 2*radius);
   }
   
@@ -87,15 +87,15 @@ public class Particle{
     if (cor.distsq(other.cor)==0) return;
     if(sq(radius + other.radius) >= cor.distsq(other.cor)){
       other.cor = other.cor.minus(this.cor).scale((radius + other.radius) / cor.dist(other.cor)).plus(this.cor);
-      Point parallelVel1 = vel.components(other.cor.minus(this.cor))[0];
-      Point parallelVel2 = other.vel.components(this.cor.minus(other.cor))[0];
-      Point normalVel1 = vel.components(other.cor.minus(this.cor))[1];
-      Point normalVel2 = other.vel.components(this.cor.minus(other.cor))[1];
+      Point diff = other.cor.minus(this.cor);
+      Point[] comp1 = vel.components(diff);
+      Point[] comp2 = other.vel.components(diff);
       float m1 = mass;
       float m2 = other.mass;
+      float invsum = 1 / (m1+m2);
 
-      vel = parallelVel1.scale((m1 - m2) / (m1 + m2)).plus(parallelVel2.scale(2 * m2 / (m1 + m2))).plus(normalVel1);
-      other.vel = parallelVel2.scale((m2 - m1) / (m1 + m2)).plus(parallelVel1.scale(2 * m1 / (m1 + m2))).plus(normalVel2);
+      vel = comp1[0].scale((m1 - m2) * invsum).plus(comp2[0].scale(2 * m2 * invsum)).plus(comp1[1]);
+      other.vel = comp2[0].scale((m2 - m1) * invsum).plus(comp1[0].scale(2 * m1 * invsum)).plus(comp2[1]);
     }
   }
   
