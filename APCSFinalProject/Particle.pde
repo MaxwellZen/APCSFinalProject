@@ -43,6 +43,14 @@ public class Particle{
   public float getYvel(){
     return vel.getY();
   }
+  
+  public Point getCor() {
+    return cor;
+  }
+  
+  public Point getVel() {
+    return vel;
+  }
 
   public float getRadius(){
     return radius;
