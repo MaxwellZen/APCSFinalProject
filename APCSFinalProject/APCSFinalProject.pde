@@ -1,18 +1,22 @@
-Particle p1, p2, p3, p4;
+Particle p1, p2, p3, p4, p5, p6;
 Spring s1;
 SoftBody sb1;
 void setup(){
   size(1000, 600);
   p1 = new Particle(500,400);
   p2 = new Particle(530,480);
-  p3 = new Particle(600, 100, 20, 20, true);
-  p4 = new Particle(600, 200, 20, 0, true);
+  p3 = new Particle(600, 100, 40, 40, true);
+  p4 = new Particle(600, 200, 40, 0, true);
+  p5 = new Particle(600, 50, 50, 0.1);
+  p6 = new Particle(600, 75, 50, 0.1);
   s1 = new Spring(p1, p2, 1, 110);
   s1.display();
   p1.display();
   p2.display();
   p3.display();
   p4.display();
+  p5.collideParticle(p6);
+  println(p6.getYcor());
   sb1 = new SoftBody(25,25,200,300,0.5,10);
   sb1.display();
   Stage.updateTime();
