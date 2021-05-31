@@ -42,4 +42,6 @@ Jerry: N/A \
 \
 5/30: \
 \
-Jerry: Wrote methods to simulate perfectly elastic collisions between particles. Also factored in air friction for particles. Tested collisions and effects of air friction. Updated UML diagram.
+Jerry: Wrote methods to simulate perfectly elastic collisions between particles. Also factored in air friction for particles. Tested collisions and effects of air friction. Updated UML diagram. \
+\
+Maxwell: implemented spring dampening, played with parameters for the demo, and worked on particle collisions so that the soft body doesn't collapse or "explode".
