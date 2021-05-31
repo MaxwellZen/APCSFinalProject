@@ -42,4 +42,4 @@ Jerry: N/A \
 \
 5/30: \
 \
-Jerry: Wrote methods to simulate perfectly elastic collisions between particles. Also factored in air friction for particles. Tested collisions and effects of air friction.
+Jerry: Wrote methods to simulate perfectly elastic collisions between particles. Also factored in air friction for particles. Tested collisions and effects of air friction. Updated UML diagram.
