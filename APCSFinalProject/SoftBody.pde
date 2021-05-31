@@ -43,6 +43,7 @@ public class SoftBody{
       particleArr.get(i).applyForce(0, particleArr.get(i).getMass()*Stage.g);
       particleArr.get(i).updatePosition();
       particleArr.get(i).bounceFloor();
+      particleArr.get(i).applyAirFriction();
     }
   }
   
