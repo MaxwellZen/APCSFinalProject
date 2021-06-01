@@ -3,6 +3,7 @@ public static class Stage {
   static long prev = 0;
   static float g = 0;
   static float airFriction = 0;
+  static float atmospherePressure = 0;
   static ArrayList<SoftBody> softBodies = new ArrayList<SoftBody>();
   
   public static void updateTime() {
@@ -25,6 +26,10 @@ public static class Stage {
   
   public static void updateAirFriction(float f){
     airFriction = f;
+  }
+  
+  public static void updateAtmPressure(float p){
+    atmospherePressure = p;
   }
   
   public static void addSoftBody(float x, float y, 
