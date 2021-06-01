@@ -1,6 +1,7 @@
 Particle p1, p2, p3, p4, p5, p6, p7, p8;
 Spring s1;
 SoftBody sb1;
+RigidBody r1;
 void setup(){
   frameRate(200);
   size(1000, 600);
@@ -22,6 +23,8 @@ void setup(){
   println(p6.getYcor());
   sb1 = new SoftBody(25,25,200,300,1,60);
   sb1.display();
+  r1 = new RigidBody(new int[][] {{125, 400}, {300, 400}, {300, 500}, {125, 500}});
+  r1.display();
   Stage.updateTime();
   Stage.updateGravity(100);
   Stage.updateAirFriction(1);
@@ -51,4 +54,5 @@ void draw() {
   sb1.updateSprings();
   sb1.updateParticles();
   sb1.display();
+  r1.display();
 }
