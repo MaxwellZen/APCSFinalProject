@@ -2,6 +2,11 @@ public class SoftBody{
   ArrayList<Particle> particleArr;
   ArrayList<Spring> springArr;
   
+  public SoftBody(){
+    particleArr = new ArrayList<Particle>(0);
+    springArr = new ArrayList<Spring>(0);
+  }
+  
   public SoftBody(float x, float y, float l, float w, float d, float k){
     particleArr = new ArrayList<Particle>();
     springArr = new ArrayList<Spring>();
@@ -29,7 +34,6 @@ public class SoftBody{
         springArr.add(new Spring(particleArr.get(i), particleArr.get(i-numRow+1), k));
     }
   }
-  
   
   public void updateSprings(){
     for (Spring s : springArr) s.updateForce();
