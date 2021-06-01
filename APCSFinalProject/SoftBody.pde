@@ -59,4 +59,12 @@ public class SoftBody{
       p.display();
     }
   }
+  
+  public void addParticle(float x, float y){
+    particleArr.add(new Particle(x,y));
+  }
+  
+  public void addSpring(Particle p1, Particle p2, float k){
+    springArr.add(new Spring(p1,p2,k));
+  }
 }
