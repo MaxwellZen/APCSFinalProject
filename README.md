@@ -48,4 +48,6 @@ Maxwell: implemented spring dampening, played with parameters for the demo, and 
 \
 6/1: \
 \
-Jerry: Wrote Balloon class constructor and get methods. Wrote addParticle, addSpring, and default constructors to Softbody. Created static atmPressure variable in Stage. Updated UML.
+Jerry: Wrote Balloon class constructor and get methods. Wrote addParticle, addSpring, and default constructors to Softbody. Created static atmPressure variable in Stage. Updated UML. \
+\
+Maxwell: Started work on the RigidBody class.
