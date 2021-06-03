@@ -1,6 +1,5 @@
 Particle p1, p2, p3, p4, p5, p6, p7, p8;
 Spring s1;
-Balloon b1;
 
 void setup() {
   frameRate(200);
@@ -13,27 +12,22 @@ void setup() {
   p6 = new Particle(600, 75, 50, 0.1);
   p7 = new Particle(600, 400, 40, 0, true);
   p8 = new Particle(700, 400, 0, 0, true);
-  s1 = new Spring(p1, p2, 1, 110);
+  s1 = new Spring(p1, p2, 1, 300);
   s1.display();
   p1.display();
   p2.display();
   p3.display();
   p4.display();
   p5.collideParticle(p6);
-  println(p6.getYcor());
-  addSoftBody(25, 25, 200, 300, 1, 0);
-  addRigidBody(new int[][] {{125, 400}, {300, 400}, {300, 500}, {125, 500}});
-  b1 = new Balloon(100, 7500, 10, 500, 300, 60);
-  b1.display();
+  addSoftBody(25, 25, 300, 200, 1, 60);
   Stage.updateTime();
   Stage.updateGravity(100);
   Stage.updateAirFriction(1);
-  println(new Point(2, 3).reflect(new Point(1, 0)));
 }
 
 void draw() {
-  println(frameRate);
   background(230);
+  println(frameRate);
   Stage.updateTime();
   s1.updateForce();
   p1.updatePosition();
@@ -52,8 +46,6 @@ void draw() {
   p3.collideParticle(p4);
   p7.collideParticle(p8);
   updateSoftBodies();
-  displayRigidBodies();
-  b1.display();
 }
 
 void addSoftBody(float x, float y, 
@@ -68,12 +60,4 @@ void updateSoftBodies() {
     s.updateParticles();
     s.display();
   }
-}
-
-void addRigidBody(int[][] coords) {
-  Stage.rigidBodies.add(new RigidBody(coords));
-}
-
-void displayRigidBodies() {
-  for (RigidBody r : Stage.rigidBodies) r.display();
 }

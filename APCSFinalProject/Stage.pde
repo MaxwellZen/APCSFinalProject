@@ -5,7 +5,6 @@ public static class Stage {
   static float airFriction = 0;
   static float atmPressure = 0;
   static ArrayList<SoftBody> softBodies = new ArrayList<SoftBody>();
-  static ArrayList<RigidBody> rigidBodies = new ArrayList<RigidBody>();
   
   public static void updateTime() {
     long current = System.currentTimeMillis();
