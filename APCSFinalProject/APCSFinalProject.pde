@@ -1,13 +1,12 @@
 Particle p1, p2, p3, p4, p5, p6, p7, p8;
 Spring s1;
-SoftBody sb1;
-RigidBody r1;
 Balloon b1;
-void setup(){
+
+void setup() {
   frameRate(200);
   size(1000, 600);
-  p1 = new Particle(500,400);
-  p2 = new Particle(530,480);
+  p1 = new Particle(500, 400);
+  p2 = new Particle(530, 480);
   p3 = new Particle(600, 100, 40, 40, true);
   p4 = new Particle(600, 200, 40, 0, true);
   p5 = new Particle(600, 50, 50, 0.1);
@@ -22,10 +21,8 @@ void setup(){
   p4.display();
   p5.collideParticle(p6);
   println(p6.getYcor());
-  sb1 = new SoftBody(25,25,200,300,1,60);
-  sb1.display();
-  r1 = new RigidBody(new int[][] {{125, 400}, {300, 400}, {300, 500}, {125, 500}});
-  r1.display();
+  addSoftBody(25, 25, 200, 300, 1, 0);
+  addRigidBody(new int[][] {{125, 400}, {300, 400}, {300, 500}, {125, 500}});
   b1 = new Balloon(100, 7500, 10, 500, 300, 60);
   b1.display();
   Stage.updateTime();
@@ -54,9 +51,29 @@ void draw() {
   p8.display();
   p3.collideParticle(p4);
   p7.collideParticle(p8);
-  sb1.updateSprings();
-  sb1.updateParticles();
-  sb1.display();
-  r1.display();
+  updateSoftBodies();
+  displayRigidBodies();
   b1.display();
+}
+
+void addSoftBody(float x, float y, 
+  float len, float wid, 
+  float density, float springConstant) {
+  Stage.softBodies.add(new SoftBody(x, y, len, wid, density, springConstant));
+}
+
+void updateSoftBodies() {
+  for (SoftBody s : Stage.softBodies) {
+    s.updateSprings();
+    s.updateParticles();
+    s.display();
+  }
+}
+
+void addRigidBody(int[][] coords) {
+  Stage.rigidBodies.add(new RigidBody(coords));
+}
+
+void displayRigidBodies() {
+  for (RigidBody r : Stage.rigidBodies) r.display();
 }
