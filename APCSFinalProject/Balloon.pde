@@ -3,7 +3,6 @@ public class Balloon extends SoftBody{
   float area;
   int numParticles;
   float internalPressure;
-  Point center;
   
   public Balloon(float m, float a, int n, float x, float y, float k){
     super();
@@ -18,8 +17,6 @@ public class Balloon extends SoftBody{
       y = height - radius - 5;
     }
     
-    center = new Point(x,y);
-    
     for(float angle = 0; angle < TWO_PI; angle += TWO_PI / numParticles){
       addParticle(x + radius * cos(angle), y + radius * sin(angle));
     }
@@ -27,5 +24,13 @@ public class Balloon extends SoftBody{
     for(int i = 0; i < particleArr.size(); i++){
       addSpring(particleArr.get(i), particleArr.get((i + 1) % particleArr.size()), k);
     }
+  }
+  
+  public float getArea(){
+    return area;
+  }
+  
+  public float getInternalPressure(){
+    return internalPressure;
   }
 }

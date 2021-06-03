@@ -44,4 +44,10 @@ Jerry: N/A \
 \
 Jerry: Wrote methods to simulate perfectly elastic collisions between particles. Also factored in air friction for particles. Tested collisions and effects of air friction. Updated UML diagram. \
 \
-Maxwell: implemented spring dampening, played with parameters for the demo, and worked on particle collisions so that the soft body doesn't collapse or "explode".
+Maxwell: implemented spring dampening, played with parameters for the demo, and worked on particle collisions so that the soft body doesn't collapse or "explode." \
+\
+6/1: \
+\
+Jerry: Wrote Balloon class constructor and get methods. Wrote addParticle, addSpring, and default constructors to Softbody. Created static atmPressure variable in Stage. Updated UML. \
+\
+Maxwell: Started work on the RigidBody class.
