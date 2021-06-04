@@ -7,7 +7,7 @@ public class Balloon extends SoftBody{
   
   public Balloon(float m, float a, int n, float x, float y, float k){
     super();
-    float gasConstant = 20;
+    float gasConstant = 1;
     mols = m;
     area = a;
     numParticles = n;
@@ -64,7 +64,7 @@ public class Balloon extends SoftBody{
   }
   
   public void updatePressure(){
-    float gasConstant = 20;
+    float gasConstant = 1;
     internalPressure = mols * gasConstant / area;
   }
   
@@ -84,7 +84,9 @@ public class Balloon extends SoftBody{
   }
   
   public void applyAirPressure(){
-    
+    for(Particle p : particleArr){
+      p.applyForce(internalPressure / numParticles * getPerimeter() * (p.getXcor() - center.getX()) / center.dist(p.getCor()), internalPressure / numParticles * getPerimeter() * (p.getYcor() - center.getY()) / center.dist(p.getCor()));
+    }
   }
   
 }
