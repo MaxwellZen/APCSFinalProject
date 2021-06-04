@@ -29,6 +29,11 @@ public class RigidBody {
   
   public boolean inside(Point p) {
     if (p.getX()<minX || p.getX()>maxX || p.getY()<minY || p.getY()>maxY) return false;
+    for (int i = 0; i < vertices.size(); i++) {
+      Point p1 = vertices.get(i), p2 = vertices.get((i+1)%vertices.size()), p3 = vertices.get((i+2)%vertices.size());
+      if (p1.orientation(p2, p)==0 || p1.orientation(p2, p)==p1.orientation(p2, p3));
+      else return false;
+    }
     return true;
   }
   
