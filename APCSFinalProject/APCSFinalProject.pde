@@ -26,6 +26,9 @@ void setup() {
   addRigidBody(new int[][] {{125, 400}, {300, 400}, {300, 500}, {125, 500}});
   b1 = new Balloon(100, 7500, 10, 500, 300, 60);
   b1.display();
+  println(b1.getPerimeter());
+  b1.updateArea();
+  println(b1.getArea());
   Stage.updateTime();
   Stage.updateGravity(100);
   Stage.updateAirFriction(1);
@@ -33,7 +36,7 @@ void setup() {
 }
 
 void draw() {
-  println(frameRate);
+  //println(frameRate);
   background(230);
   Stage.updateTime();
   s1.updateForce();
