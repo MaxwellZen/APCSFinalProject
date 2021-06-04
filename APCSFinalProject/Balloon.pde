@@ -79,8 +79,9 @@ public class Balloon extends SoftBody{
       triArea -= particleArr.get((i + 1) % particleArr.size()).getXcor() * particleArr.get(i).getYcor();
       triArea -= center.getX() * particleArr.get((i+1) % particleArr.size()).getYcor();
       triArea = abs(triArea) / 2;
-      result.plus((particleArr.get(i).getCor().plus(particleArr.get((i+1) % particleArr.size()).getCor()).plus(center)).scale(triArea / area));
+      result.plus((particleArr.get(i).getCor().plus(particleArr.get((i+1) % particleArr.size()).getCor()).plus(center)).scale(1/3 * triArea / area));
     }
+    center = result;
   }
   
   public void applyAirPressure(){
