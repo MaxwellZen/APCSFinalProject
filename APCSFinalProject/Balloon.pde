@@ -55,4 +55,9 @@ public class Balloon extends SoftBody{
     }
     area = abs(result) / 2;
   }
+  
+  public void updatePressure(){
+    float gasConstant = 20;
+    internalPressure = mols * gasConstant / area;
+  }
 }
