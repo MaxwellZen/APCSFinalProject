@@ -60,6 +60,14 @@ public class Particle{
     return mass;
   }
   
+  public void setCor(Point c) {
+    cor = c;
+  }
+  
+  public void setVel(Point v) {
+    vel = v;
+  }
+  
   public void applyForce(float fx, float fy){
     float time = Stage.time;
     vel = vel.plus(new Point(time*fx/mass, time*fy/mass));
