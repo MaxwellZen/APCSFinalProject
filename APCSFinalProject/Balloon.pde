@@ -12,7 +12,7 @@ public class Balloon extends SoftBody{
     numParticles = n;
     internalPressure = mols * gasConstant / area;
     
-    float radius = sqrt(a / PI);
+    float radius = sqrt(2 * a / n / sin(TWO_PI / n));
     if (y + radius > height){
       y = height - radius - 5;
     }
