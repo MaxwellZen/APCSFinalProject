@@ -41,5 +41,5 @@ Jerry: Wrote Balloon class constructor and get methods. Wrote addParticle, addSp
 Maxwell: Started work on the RigidBody class. \
 \
 6/3: \
-Jerry: Wrote getPerimeter, getCenter, updateArea, updatePressure, updateCenter, and applyAirPressure methods for Balloon. Still needs debugging for applyAirPressure and updateCenter, but rest are tested.
+Jerry: Wrote getPerimeter, getCenter, updateArea, updatePressure, updateCenter, and applyAirPressure methods for Balloon. Still needs debugging for applyAirPressure and updateCenter, but rest are tested. Also updated UML diagram slightly to fit new structure and add new methods.
 
