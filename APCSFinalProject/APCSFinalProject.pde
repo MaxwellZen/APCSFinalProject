@@ -1,4 +1,3 @@
-import java.util.Collections;
 Particle p1, p2, p3, p4, p5, p6, p7, p8;
 Spring s1;
 Balloon b1;
@@ -22,9 +21,9 @@ void setup() {
   p4.display();
   p5.collideParticle(p6);
   println(p6.getYcor());
-  //addSoftBody(25, 25, 200, 300, 1, 200);
-  addRigidBody(new int[][] {{125, 400}, {300, 400}, {300, 500}, {125, 500}});
-  b1 = new Balloon(2000000, 7500, 10, 500, 300, 300);
+  addSoftBody(25, 25, 200, 300, 1, 0);
+  //addRigidBody(new int[][] {{125, 400}, {300, 400}, {300, 500}, {125, 500}});
+  b1 = new Balloon(500000, 7500, 10, 500, 300, 50);
   b1.display();
   println(b1.getPerimeter());
   b1.updateArea();
@@ -34,7 +33,7 @@ void setup() {
   Stage.updateTime();
   Stage.updateGravity(100);
   Stage.updateAirFriction(1);
-  Stage.updateAtmPressure(0);
+  Stage.updateAtmPressure(1);
   println(new Point(2, 3).reflect(new Point(1, 0)));
 }
 
@@ -58,8 +57,8 @@ void draw() {
   p8.display();
   p3.collideParticle(p4);
   p7.collideParticle(p8);
-  //updateSoftBodies();
-  displayRigidBodies();
+  updateSoftBodies();
+  //displayRigidBodies();
   b1.updateArea();
   b1.updateCenter();
   b1.updatePressure();
