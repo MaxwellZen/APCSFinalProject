@@ -52,6 +52,16 @@ public class Point {
     return this.y*other.x - this.x*other.y;
   }
   
+  // 1 if a is clockwise to b relative to this, 0 if a b and this are collinear, -1 otherwise
+  public float orientation(Point a, Point b) {
+    a=a.minus(this);
+    b=b.minus(this);
+    float c = a.cross(b);
+    if (c>0) return 1;
+    if (c<0) return -1;
+    return 0;
+  }
+  
   public Point plus(Point other) {
     return new Point(this.x+other.x, this.y+other.y);
   }
