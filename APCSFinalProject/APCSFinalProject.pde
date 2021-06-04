@@ -59,6 +59,12 @@ void draw() {
   p7.collideParticle(p8);
   updateSoftBodies();
   displayRigidBodies();
+  b1.updateArea();
+  b1.updatePressure();
+  b1.updateCenter();
+  b1.applyAirPressure();
+  b1.updateParticles();
+  b1.updateSprings();
   b1.display();
 }
 
