@@ -40,15 +40,17 @@ public class SoftBody{
   }
   
   public void updateParticles(){
-    Collections.sort(particleArr);
     for(int i = 0; i < particleArr.size(); i++){
+      Particle p = particleArr.get(i);
       for(int j = 0; j < i; j++){
-        particleArr.get(i).collideParticle(particleArr.get(j));
+        Particle p2 = particleArr.get(j);
+        if (p.getYcor()>p2.getYcor()) p.collideParticle(p2);
+        else p2.collideParticle(p);
       }
-      particleArr.get(i).applyForce(0, particleArr.get(i).getMass()*Stage.g);
-      particleArr.get(i).updatePosition();
-      particleArr.get(i).bounceFloor();
-      particleArr.get(i).applyAirFriction();
+      p.applyForce(0, p.getMass()*Stage.g);
+      p.updatePosition();
+      p.bounceFloor();
+      p.applyAirFriction();
     }
   }
   

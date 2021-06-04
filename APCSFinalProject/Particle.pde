@@ -1,4 +1,4 @@
-public class Particle implements Comparable<Particle>{
+public class Particle{
   Point cor;
   Point vel;
   float radius;
@@ -101,12 +101,5 @@ public class Particle implements Comparable<Particle>{
   
   public void applyAirFriction(){
     applyForce(-vel.getX() * Stage.airFriction * 0.005, -vel.getY() * Stage.airFriction * 0.005);
-  }
-  
-  public int compareTo(Particle other) {
-    float y1=cor.getY(), y2=other.cor.getY();
-    if (y1<y2) return -1;
-    if (y1>y2) return 1;
-    return 0;
   }
 }
