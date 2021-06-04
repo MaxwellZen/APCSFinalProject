@@ -42,4 +42,17 @@ public class Balloon extends SoftBody{
     return result;
   }
   
+  public void updateArea(){
+    float result = 0;
+    for(int i = 0; i < particleArr.size(); i++){
+      result += particleArr.get(i).getXcor() * particleArr.get((i + 1) % particleArr.size()).getYcor();
+      if(i == 0){
+        result -= particleArr.get(i).getXcor() * particleArr.get(particleArr.size() - 1).getYcor();
+      } 
+      else{
+        result -= particleArr.get(i).getXcor() * particleArr.get(i - 1).getYcor();
+      }
+    }
+    area = abs(result) / 2;
+  }
 }
