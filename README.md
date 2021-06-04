@@ -12,7 +12,7 @@ Brief Project Description:  2D soft body simulation composed of many particles c
 \
 Compile/Run Instructions:\
 \
-LOREM IPSUM\
+Just run the processing file and watch the simulation! \
 \
 Development Log:\
 \
