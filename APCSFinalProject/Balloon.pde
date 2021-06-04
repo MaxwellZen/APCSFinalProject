@@ -33,4 +33,13 @@ public class Balloon extends SoftBody{
   public float getInternalPressure(){
     return internalPressure;
   }
+  
+  public float getPerimeter(){
+    float result = 0;
+    for (int i = 0; i < particleArr.size(); i++){
+      result += particleArr.get(i).getCor().dist(particleArr.get((i + 1) % particleArr.size()).getCor());
+    }
+    return result;
+  }
+  
 }
