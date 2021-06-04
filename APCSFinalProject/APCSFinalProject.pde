@@ -34,6 +34,7 @@ void setup() {
   Stage.updateTime();
   Stage.updateGravity(100);
   Stage.updateAirFriction(1);
+  Stage.updateAtmPressure(0.4);
   println(new Point(2, 3).reflect(new Point(1, 0)));
 }
 
