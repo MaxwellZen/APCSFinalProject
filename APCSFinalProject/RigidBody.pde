@@ -37,4 +37,21 @@ public class RigidBody {
     return true;
   }
   
+  public void collide(Particle p0) {
+    Point p = p0.cor;
+    if (inside(p)) {
+      Point next = new Point();
+      float mindist = (1f / 0f);
+      for (int i = 0; i < vertices.size(); i++) {
+        Point candidate = p.closest(vertices.get(i), vertices.get((i+1)%vertices.size()));
+        if (p.distsq(candidate)<mindist) {
+          next = candidate;
+          mindist = p.distsq(candidate);
+        }
+      }
+      p0.setCor(next);
+      p0.setVel(p0.getVel().reflect(next.minus(p)));
+    }
+  }
+  
 }
