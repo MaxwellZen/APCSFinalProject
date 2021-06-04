@@ -22,9 +22,9 @@ void setup() {
   p4.display();
   p5.collideParticle(p6);
   println(p6.getYcor());
-  addSoftBody(25, 25, 200, 300, 1, 0);
+  //addSoftBody(25, 25, 200, 300, 1, 200);
   addRigidBody(new int[][] {{125, 400}, {300, 400}, {300, 500}, {125, 500}});
-  b1 = new Balloon(100, 7500, 10, 500, 300, 60);
+  b1 = new Balloon(2000000, 7500, 10, 500, 300, 300);
   b1.display();
   println(b1.getPerimeter());
   b1.updateArea();
@@ -34,7 +34,7 @@ void setup() {
   Stage.updateTime();
   Stage.updateGravity(100);
   Stage.updateAirFriction(1);
-  Stage.updateAtmPressure(0.4);
+  Stage.updateAtmPressure(0);
   println(new Point(2, 3).reflect(new Point(1, 0)));
 }
 
@@ -58,14 +58,14 @@ void draw() {
   p8.display();
   p3.collideParticle(p4);
   p7.collideParticle(p8);
-  updateSoftBodies();
+  //updateSoftBodies();
   displayRigidBodies();
   b1.updateArea();
-  b1.updatePressure();
   b1.updateCenter();
-  b1.applyAirPressure();
-  b1.updateParticles();
+  b1.updatePressure();
+  b1.applyAirPressure(); //<>//
   b1.updateSprings();
+  b1.updateParticles();
   b1.display();
 }
 
