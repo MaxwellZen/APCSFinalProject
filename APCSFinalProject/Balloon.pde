@@ -85,7 +85,7 @@ public class Balloon extends SoftBody{
   
   public void applyAirPressure(){
     for(Particle p : particleArr){
-      p.applyForce(internalPressure / numParticles * getPerimeter() * (p.getXcor() - center.getX()) / center.dist(p.getCor()), internalPressure / numParticles * getPerimeter() * (p.getYcor() - center.getY()) / center.dist(p.getCor()));
+      p.applyForce(((internalPressure - Stage.atmPressure) / numParticles * getPerimeter()) * (p.getXcor() - center.getX()) / center.dist(p.getCor()), (internalPressure - Stage.atmPressure) / numParticles * getPerimeter() * (p.getYcor() - center.getY()) / center.dist(p.getCor()));
     }
   }
   
