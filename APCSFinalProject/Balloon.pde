@@ -3,6 +3,7 @@ public class Balloon extends SoftBody{
   float area;
   int numParticles;
   float internalPressure;
+  Point center;
   
   public Balloon(float m, float a, int n, float x, float y, float k){
     super();
@@ -16,6 +17,8 @@ public class Balloon extends SoftBody{
     if (y + radius > height){
       y = height - radius - 5;
     }
+    
+    center = new Point(x, y);
     
     for(float angle = 0; angle < TWO_PI; angle += TWO_PI / numParticles){
       addParticle(x + radius * cos(angle), y + radius * sin(angle));
@@ -42,6 +45,10 @@ public class Balloon extends SoftBody{
     return result;
   }
   
+  public Point getCenter(){
+    return center;
+  }
+  
   public void updateArea(){
     float result = 0;
     for(int i = 0; i < particleArr.size(); i++){
@@ -60,4 +67,24 @@ public class Balloon extends SoftBody{
     float gasConstant = 20;
     internalPressure = mols * gasConstant / area;
   }
+  
+  public void updateCenter(){
+    Point result = new Point(0,0);
+    for(int i = 0; i < particleArr.size(); i++){
+      int triArea = 0;
+      triArea += particleArr.get(i).getXcor() * particleArr.get((i+1) % particleArr.size()).getYcor();
+      triArea += particleArr.get((i + 1) % particleArr.size()).getXcor() * center.getY();
+      triArea += center.getX() * particleArr.get(i).getYcor();
+      triArea -= particleArr.get(i).getXcor() * center.getY();
+      triArea -= particleArr.get((i + 1) % particleArr.size()).getXcor() * particleArr.get(i).getYcor();
+      triArea -= center.getX() * particleArr.get((i+1) % particleArr.size()).getYcor();
+      triArea = abs(triArea) / 2;
+      result.plus((particleArr.get(i).getCor().plus(particleArr.get((i+1) % particleArr.size()).getCor()).plus(center)).scale(triArea / area));
+    }
+  }
+  
+  public void applyAirPressure(){
+    
+  }
+  
 }
