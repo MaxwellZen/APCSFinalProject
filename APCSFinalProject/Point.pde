@@ -92,4 +92,15 @@ public class Point {
     return minus(normalized.scale(2 * dot(normalized)));
   }
   
+  public Point closest(Point p1, Point p2) {
+    Point p0 = this.minus(p1), p2norm = p2.minus(p1).normalize();
+    Point close = p2norm.scale(p0.dot(p2norm));
+    close = close.plus(p1);
+    if (close.x < min(p1.x, p2.x) || close.x > max(p1.x, p2.x) || close.y < min(p1.y, p2.y) || close.y > max(p1.y, p2.y)) {
+      if (distsq(p1)<distsq(p2)) return p1;
+      return p2;
+    }
+    return close;
+  }
+  
 }
