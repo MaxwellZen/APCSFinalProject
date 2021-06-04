@@ -40,6 +40,7 @@ public class SoftBody{
   }
   
   public void updateParticles(){
+    Collections.sort(particleArr);
     for(int i = 0; i < particleArr.size(); i++){
       for(int j = 0; j < i; j++){
         particleArr.get(i).collideParticle(particleArr.get(j));
