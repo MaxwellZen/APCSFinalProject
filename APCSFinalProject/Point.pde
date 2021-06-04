@@ -57,9 +57,9 @@ public class Point {
     a=a.minus(this);
     b=b.minus(this);
     float c = a.cross(b);
+    if (abs(c)<0.1) return 0;
     if (c>0) return 1;
-    if (c<0) return -1;
-    return 0;
+    return -1;
   }
   
   public Point plus(Point other) {
