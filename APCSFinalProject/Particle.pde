@@ -80,6 +80,7 @@ public class Particle{
   public void display(){
     noStroke();
     fill(#0044ff); //Light blue
+    for (RigidBody r : Stage.rigidBodies) if (r.inside(this.cor)) fill(#ff0000);
     circle(cor.getX(), cor.getY(), 2*radius);
   }
   
