@@ -48,6 +48,7 @@ public class SoftBody{
         else p2.collideParticle(p);
       }
       p.applyForce(0, p.getMass()*Stage.g);
+      for (RigidBody r : Stage.rigidBodies) r.collide(p);
       p.updatePosition();
       p.bounceFloor();
       p.applyAirFriction();

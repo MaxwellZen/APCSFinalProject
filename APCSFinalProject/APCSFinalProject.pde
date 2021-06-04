@@ -21,8 +21,8 @@ void setup() {
   p4.display();
   p5.collideParticle(p6);
   println(p6.getYcor());
-  addSoftBody(25, 25, 200, 300, 1, 0);
-  addRigidBody(new int[][] {{125, 400}, {210, 300}, {300, 400}, {300, 500}, {125, 500}});
+  addSoftBody(25, 25, 200, 300, 1, 60);
+  addRigidBody(new int[][] {{0, 400}, {300, 420}, {300, 500}, {0, 500}});
   b1 = new Balloon(500000, 7500, 10, 500, 300, 50);
   b1.display();
   println(b1.getPerimeter());
