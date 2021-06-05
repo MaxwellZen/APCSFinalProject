@@ -57,7 +57,7 @@ public class Point {
     a=a.minus(this);
     b=b.minus(this);
     float c = a.cross(b);
-    if (abs(c)<0.1) return 0;
+    if (abs(c)<0.01) return 0;
     if (c>0) return 1;
     return -1;
   }
@@ -90,6 +90,10 @@ public class Point {
   public Point reflect(Point other) {
     Point normalized = other.normalize();
     return minus(normalized.scale(2 * dot(normalized)));
+  }
+  
+  public Point bounce (Point other) {
+    return reflect(new Point(-other.y, other.x));
   }
   
   public Point closest(Point p1, Point p2) {
