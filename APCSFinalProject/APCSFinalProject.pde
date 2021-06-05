@@ -68,6 +68,19 @@ void draw() {
   b1.display();
 }
 
+void mouseDragged(){
+  for(SoftBody sb : Stage.softBodies){
+    for(Particle p : sb.particleArr){
+      if(sq(mouseX - p.getXcor()) + sq(mouseY - p.getYcor()) < sq(p.radius)){
+        for(Particle q : sb.particleArr){
+          q.setCor(q.cor.plus(new Point(mouseX - pmouseX, mouseY - pmouseY)));
+          q.setVel(q.vel.plus(new Point(mouseX - pmouseX, mouseY - pmouseY)));
+        }
+      }
+    }
+  }
+}
+
 void addSoftBody(float x, float y, 
   float len, float wid, 
   float density, float springConstant) {
