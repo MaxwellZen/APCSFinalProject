@@ -42,4 +42,7 @@ Maxwell: Started work on the RigidBody class. \
 \
 6/3: \
 Jerry: Wrote getPerimeter, getCenter, updateArea, updatePressure, updateCenter, and applyAirPressure methods for Balloon. Still needs debugging for applyAirPressure and updateCenter, but rest are tested. Also updated UML diagram slightly to fit new structure and add new methods. \
-Maxwell: Implemented a bounding box for rigid body collision and an orientation method in the point class to make the complete collision method easier, also tried to debug the Balloon class and made some progress but didn't make it fully convincing. Also, first used a custom sort to make particle collisions look more appealing but realized that there was an easier way and replaced it with that implementation instead. 
+Maxwell: Implemented a bounding box for rigid body collision and an orientation method in the point class to make the complete collision method easier, also tried to debug the Balloon class and made some progress but didn't make it fully convincing. Also, first used a custom sort to make particle collisions look more appealing but realized that there was an easier way and replaced it with that implementation instead. \
+\
+6/4: \
+Jerry: Simulated dragging for soft body and rigid body. Still need to implement checks to prevent dragging from causing soft bodies to explode + rigid bodies from going below the ground.
