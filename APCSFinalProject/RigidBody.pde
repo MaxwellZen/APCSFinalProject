@@ -40,17 +40,18 @@ public class RigidBody {
   public void collide(Particle p0) {
     Point p = p0.cor;
     if (inside(p)) {
-      Point next = new Point();
+      Point next = new Point(), side = new Point(2, 2);
       float mindist = (1f / 0f);
       for (int i = 0; i < vertices.size(); i++) {
         Point candidate = p.closest(vertices.get(i), vertices.get((i+1)%vertices.size()));
         if (p.distsq(candidate)<mindist) {
           next = candidate;
           mindist = p.distsq(candidate);
+          side = vertices.get(i).minus(vertices.get((i+1)%vertices.size()));
         }
       }
       p0.setCor(next);
-      p0.setVel(p0.getVel().reflect(next.minus(p)));
+      p0.setVel(p0.getVel().bounce(side));
     }
   }
   
