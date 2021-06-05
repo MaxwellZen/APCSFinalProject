@@ -73,10 +73,25 @@ void mouseDragged(){
     for(Particle p : sb.particleArr){
       if(sq(mouseX - p.getXcor()) + sq(mouseY - p.getYcor()) < sq(p.radius)){
         for(Particle q : sb.particleArr){
-          q.setCor(q.cor.plus(new Point(mouseX - pmouseX, mouseY - pmouseY)));
-          q.setVel(q.vel.plus(new Point(mouseX - pmouseX, mouseY - pmouseY)));
+          Point dP = new Point(mouseX - pmouseX, mouseY - pmouseY);
+          if (q.cor.plus(dP).getY() < height){
+            q.setCor(q.cor.plus(new Point(mouseX - pmouseX, mouseY - pmouseY)));
+            q.setVel(q.vel.plus(new Point(mouseX - pmouseX, mouseY - pmouseY)));
+          }
         }
       }
+    }
+  }
+  for(RigidBody r : Stage.rigidBodies){
+    if(r.inside(new Point(mouseX, mouseY))){
+      for(int i  = 0; i < r.vertices.size(); i++){
+        Point p = r.vertices.get(i);
+        r.vertices.set(i, p.plus(new Point(mouseX - pmouseX, mouseY - pmouseY)));
+      }
+      r.minX += mouseX - pmouseX;
+      r.maxX += mouseX - pmouseX;
+      r.minY += mouseY - pmouseY;
+      r.maxY += mouseY - pmouseY;
     }
   }
 }
