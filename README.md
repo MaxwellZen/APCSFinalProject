@@ -45,4 +45,5 @@ Jerry: Wrote getPerimeter, getCenter, updateArea, updatePressure, updateCenter, 
 Maxwell: Implemented a bounding box for rigid body collision and an orientation method in the point class to make the complete collision method easier, also tried to debug the Balloon class and made some progress but didn't make it fully convincing. Also, first used a custom sort to make particle collisions look more appealing but realized that there was an easier way and replaced it with that implementation instead. \
 \
 6/4: \
-Jerry: Simulated dragging for soft body and rigid body. Still need to implement checks to prevent dragging from causing soft bodies to explode + rigid bodies from going below the ground.
+Jerry: Simulated dragging for soft body and rigid body. Still need to implement checks to prevent dragging from causing soft bodies to explode + rigid bodies from going below the ground. \
+Maxwell: implemented the RigidBody collide function (which included: finishing the RigidBody inside function, writing a bounce function for Point, writing the setCor and setVel methods for Particles, and altering the orientation method to have more leeway for the case where three points are collinear)
