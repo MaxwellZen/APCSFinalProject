@@ -91,14 +91,10 @@ public class Balloon extends SoftBody{
     //}
     //center = result;
     //center = new Point(result.x, result.y);
-    circle(center.x, center.y, 10);
     //area=m;
   }
   
   public void applyAirPressure(){
-    textSize(20);
-    text(internalPressure, 25, 25);
-    text(area, 25, 50);
     for(Particle p : particleArr){
       if (p.cor.distsq(center)==0) continue;
       Point direction = p.cor.minus(center).normalize().scale(internalPressure - Stage.atmPressure);
