@@ -19,6 +19,13 @@ public class RigidBody {
   }
   
   public void display() {
+    //for(int i = ceil(minX); i <= floor(maxX); i++){
+    //  for(int j = ceil(minY); j <= floor(maxY); j++){
+    //    if(inside(new Point(i,j))){
+    //      set(i,j,#FF9637);
+    //    }
+    //  }
+    //}
     stroke(0);
     for (int i = 0; i < vertices.size(); i++) {
       Point v1 = vertices.get(i);
