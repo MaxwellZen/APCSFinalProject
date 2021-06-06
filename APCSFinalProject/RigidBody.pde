@@ -7,7 +7,7 @@ public class RigidBody {
     vertices = new ArrayList<Point>();
   }
   
-  public RigidBody(int[][] coords) {
+  public RigidBody(float[][] coords) {
     vertices = new ArrayList<Point>();
     for (int i = 0; i < coords.length; i++) {
       vertices.add(new Point(coords[i][0], coords[i][1]));
