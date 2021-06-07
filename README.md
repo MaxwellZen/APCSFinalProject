@@ -46,4 +46,7 @@ Maxwell: Implemented a bounding box for rigid body collision and an orientation 
 \
 6/4: \
 Jerry: Simulated dragging for soft body and rigid body. Still need to implement checks to prevent dragging from causing soft bodies to explode + rigid bodies from going below the ground. \
-Maxwell: implemented the RigidBody collide function (which included: finishing the RigidBody inside function, writing a bounce function for Point, writing the setCor and setVel methods for Particles, and altering the orientation method to have more leeway for the case where three points are collinear)
+Maxwell: implemented the RigidBody collide function (which included: finishing the RigidBody inside function, writing a bounce function for Point, writing the setCor and setVel methods for Particles, and altering the orientation method to have more leeway for the case where three points are collinear) \
+\
+6/6: \
+Maxwell: implemented the convex hull algorithm and use it to determine when the mouse is dragging the soft body. \
