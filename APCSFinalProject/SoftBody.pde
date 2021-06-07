@@ -59,9 +59,13 @@ public class SoftBody{
     for(Spring s : springArr){
       s.display();
     }
+    ArrayList<Point> coords = new ArrayList<Point>();
     for(Particle p : particleArr){
       p.display();
+      coords.add(p.cor);
     }
+    RigidBody outline = new RigidBody(new Point().convexHull(coords));
+    outline.display();
   }
   
   public void addParticle(float x, float y){
