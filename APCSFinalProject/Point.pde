@@ -107,4 +107,26 @@ public class Point {
     return close;
   }
   
+  ArrayList<Point> convexHull(ArrayList<Point> p) {
+    ArrayList<Point> ans = new ArrayList<Point>();
+    Point p0 = p.get(0);
+    int m = 0;
+    for (int i = 1; i < p.size(); i++)
+      if (p.get(i).y < p0.y || (p.get(i).y==p0.y && p.get(i).x<p0.x)) { 
+        p0 = p.get(i);
+        m = i;
+      }
+    p.set(m, p.get(0));
+    p.remove(0);
+    Collections.sort(p, new PolarOrder(p0));
+    ans.add(p0);
+    for (int i = 0; i < p.size(); i++) {
+      while (ans.size()>1 && p.get(i).orientation(ans.get(ans.size()-1), ans.get(ans.size()-2))!=1) {
+        ans.remove(ans.size()-1);
+      }
+      ans.add(p.get(i));
+    }
+    return ans;
+  }
+  
 }
