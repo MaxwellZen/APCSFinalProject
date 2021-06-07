@@ -18,6 +18,16 @@ public class RigidBody {
     }
   }
   
+  public RigidBody(ArrayList<Point> coords) {
+     vertices = coords;
+     for (int i = 0; i < coords.size(); i++) {
+       minX = min(minX, coords.get(i).x);
+       maxX = max(maxX, coords.get(i).x);
+       minY = min(minY, coords.get(i).y);
+       maxY = max(maxY, coords.get(i).y);
+     }
+  }
+  
   public void display() {
     //for(int i = ceil(minX); i <= floor(maxX); i++){
     //  for(int j = ceil(minY); j <= floor(maxY); j++){
