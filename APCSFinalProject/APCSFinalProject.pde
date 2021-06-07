@@ -65,7 +65,7 @@ void draw() {
   b1.updateArea();
   b1.updateCenter();
   b1.updatePressure();
-  b1.applyAirPressure(); //<>// //<>// //<>//
+  b1.applyAirPressure(); //<>// //<>//
   b1.updateSprings();
   b1.updateParticles();
   b1.display();
@@ -73,17 +73,28 @@ void draw() {
 
 void mouseDragged(){
   for(SoftBody sb : Stage.softBodies){
-    for(Particle p : sb.particleArr){
-      if(sq(mouseX - p.getXcor()) + sq(mouseY - p.getYcor()) < sq(p.radius)){
-        for(Particle q : sb.particleArr){
-          Point dP = new Point(mouseX - pmouseX, mouseY - pmouseY);
-          if (q.cor.plus(dP).getY() < height){
-            q.setCor(q.cor.plus(new Point(mouseX - pmouseX, mouseY - pmouseY)));
-            q.setVel(q.vel.plus(new Point(mouseX - pmouseX, mouseY - pmouseY)));
-          }
+    ArrayList<Point> coords = new ArrayList<Point>();
+    for (Particle p : sb.particleArr) coords.add(p.cor);
+    coords = new Point().convexHull(coords);
+    RigidBody outline = new RigidBody(coords);
+    if (outline.inside(new Point(mouseX, mouseY)))
+      for(Particle q : sb.particleArr){
+        Point dP = new Point(mouseX - pmouseX, mouseY - pmouseY);
+        if (q.cor.plus(dP).getY() < height){
+          q.setCor(q.cor.plus(dP));
         }
       }
-    }
+    //for(Particle p : sb.particleArr){
+    //  if(sq(mouseX - p.getXcor()) + sq(mouseY - p.getYcor()) < sq(p.radius)){
+    //    for(Particle q : sb.particleArr){
+    //      Point dP = new Point(mouseX - pmouseX, mouseY - pmouseY);
+    //      if (q.cor.plus(dP).getY() < height){
+    //        q.setCor(q.cor.plus(new Point(mouseX - pmouseX, mouseY - pmouseY)));
+    //        q.setVel(q.vel.plus(new Point(mouseX - pmouseX, mouseY - pmouseY)));
+    //      }
+    //    }
+    //  }
+    //}
   }
   for(RigidBody r : Stage.rigidBodies){
     if(r.inside(new Point(mouseX, mouseY))){
