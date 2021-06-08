@@ -110,4 +110,8 @@ public class Balloon extends SoftBody{
     }
   }
   
+  public void addMols(int num){
+    mols += num;
+  }
+  
 }
