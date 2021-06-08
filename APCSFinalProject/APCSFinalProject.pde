@@ -2,14 +2,14 @@ import java.io.*;
 import java.lang.*;
 import java.util.*;
 Balloon b1;
+Display d;
 int location = 0;
 boolean needsetup = true;
 
 void setup() {
   frameRate(200);
   size(1000, 600);
-  addSoftBody(25, 25, 200, 300, 1, 60);
-  addRigidBody(new float[][] {{0, 400}, {300, 420}, {300, 500}, {0, 500}});
+  d = new Display();
   b1 = new Balloon(500000, 7500, 10, 500, 300, 50);
   b1.display();
   println(b1.getPerimeter());
@@ -21,15 +21,18 @@ void setup() {
   Stage.updateGravity(100);
   Stage.updateAirFriction(1);
   Stage.updateAtmPressure(1);
-  println(new Point(2, 3).reflect(new Point(1, 0)));
 }
 
 void draw() {
-  //println(frameRate);
   background(230);
   Stage.updateTime();
-  updateSoftBodies();
-  displayRigidBodies();
+  if (location==0) {
+    if (needsetup) {
+      d.setup0();
+      needsetup=false;
+    }
+    d.update0();
+  }
   b1.updateArea();
   b1.updateCenter();
   b1.updatePressure();
@@ -62,10 +65,10 @@ void mouseDragged(){
       r.maxX += mouseX - pmouseX;
       r.minY += mouseY - pmouseY;
       r.maxY += mouseY - pmouseY;
-    }
+    } //<>//
   }
 }
- //<>//
+
 void addSoftBody(float x, float y, 
   float len, float wid, 
   float density, float springConstant) {
