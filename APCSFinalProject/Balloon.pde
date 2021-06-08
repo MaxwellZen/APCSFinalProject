@@ -3,11 +3,11 @@ public class Balloon extends SoftBody{
   float area;
   int numParticles;
   float internalPressure;
-  Point center;
+  //Point center;
   
   public Balloon(float m, float a, int n, float x, float y, float k){
     super();
-    float gasConstant = 1;
+    float gasConstant = 5000000;
     mols = m;
     area = a;
     numParticles = n;
@@ -18,7 +18,7 @@ public class Balloon extends SoftBody{
       y = height - radius - 5;
     }
     
-    center = new Point(x, y);
+    //center = new Point(x, y);
     
     for(float angle = 0; angle < TWO_PI; angle += TWO_PI / numParticles){
       addParticle(x + radius * cos(angle), y + radius * sin(angle));
@@ -45,9 +45,9 @@ public class Balloon extends SoftBody{
     return result;
   }
   
-  public Point getCenter(){
-    return center;
-  }
+  //public Point getCenter(){
+  //  return center;
+  //}
   
   
   public void updateArea(){
@@ -67,7 +67,7 @@ public class Balloon extends SoftBody{
   }
   
   public void updatePressure(){
-    float gasConstant = 1;
+    float gasConstant = 5000000;
     internalPressure = mols * gasConstant / area;
   }
   
@@ -95,10 +95,18 @@ public class Balloon extends SoftBody{
   }
   
   public void applyAirPressure(){
-    for(Particle p : particleArr){
-      if (p.cor.distsq(center)==0) continue;
-      Point direction = p.cor.minus(center).normalize().scale(internalPressure - Stage.atmPressure);
-      p.applyForce(direction.x, direction.y);
+    //for(Particle p : particleArr){
+    //  //if (p.cor.distsq(center)==0) continue;
+    //  //Point direction = p.cor.minus(center).normalize().scale(internalPressure - Stage.atmPressure);
+    //  //p.applyForce(direction.x, direction.y);
+    //}
+    for(int i = 0; i < particleArr.size(); i++){
+      Particle p0 = particleArr.get(i);
+      Particle p1 = particleArr.get(((i+1) % particleArr.size()));
+      float dist = p0.getCor().dist(p1.getCor());
+      float pressure = internalPressure / dist;
+      p0.applyForce(p1.getCor().minus(p0.getCor()).scale(pressure / dist).getY(), p1.getCor().minus(p0.getCor()).scale(- 1 * pressure / dist).getX());
+      p1.applyForce(p1.getCor().minus(p0.getCor()).scale(pressure / dist).getY(), p1.getCor().minus(p0.getCor()).scale(- 1 * pressure / dist).getX());
     }
   }
   
