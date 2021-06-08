@@ -10,13 +10,13 @@ void setup() {
   frameRate(200);
   size(1000, 600);
   d = new Display();
-  b1 = new Balloon(500000, 7500, 10, 500, 300, 50);
+  b1 = new Balloon(10, 7500, 10, 500, 300, 50);
   b1.display();
   println(b1.getPerimeter());
   b1.updateArea();
   println(b1.getArea());
   b1.updateCenter();
-  println(b1.getCenter());
+  //println(b1.getCenter());
   Stage.updateTime();
   Stage.updateGravity(100);
   Stage.updateAirFriction(1);
@@ -33,7 +33,7 @@ void draw() {
     }
     d.update0();
   }
-  b1.updateArea();
+  b1.updateArea(); //<>//
   b1.updateCenter();
   b1.updatePressure();
   b1.applyAirPressure(); //<>// //<>//
@@ -65,7 +65,7 @@ void mouseDragged(){
       r.maxX += mouseX - pmouseX;
       r.minY += mouseY - pmouseY;
       r.maxY += mouseY - pmouseY;
-    } //<>//
+    } //<>// //<>//
   }
 }
 
