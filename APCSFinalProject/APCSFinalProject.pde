@@ -36,7 +36,8 @@ void draw() {
   b1.updateArea(); //<>//
   b1.updateCenter();
   b1.updatePressure();
-  b1.applyAirPressure(); //<>// //<>//
+  b1.applyAirPressure();
+  b1.addMols(10);
   b1.updateSprings();
   b1.updateParticles();
   b1.display();
@@ -64,8 +65,8 @@ void mouseDragged(){
       r.minX += mouseX - pmouseX;
       r.maxX += mouseX - pmouseX;
       r.minY += mouseY - pmouseY;
-      r.maxY += mouseY - pmouseY;
-    } //<>// //<>//
+      r.maxY += mouseY - pmouseY; //<>//
+    } //<>//
   }
 }
 
