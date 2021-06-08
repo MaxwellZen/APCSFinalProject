@@ -52,6 +52,6 @@ Maxwell: implemented the RigidBody collide function (which included: finishing t
 Maxwell: implemented the convex hull algorithm and use it to determine when the mouse is dragging the soft body. \
 Jerry: N/A \
 \
-6/7:
+6/7: \
 Jerry: Updated UML diagram. Read up on how to implement/simulate pressure within the balloon class to be prepared for tomorrow. \
 Maxwell: N/A
