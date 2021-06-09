@@ -57,4 +57,5 @@ Jerry: Updated UML diagram. Read up on how to implement/simulate pressure within
 Maxwell: N/A \
 \
 6/8: \
-Maxwell: Made a Display class to house methods for each demo and started working on the user interface. Also played with the order of softbody physics calculations to fix minor issue where particles got stuck on the edge of a rigidbody.
+Maxwell: Made a Display class to house methods for each demo and started working on the user interface. Also played with the order of softbody physics calculations to fix minor issue where particles got stuck on the edge of a rigidbody. \
+Jerry: Fixed balloon applyAirPressure by changing method of calculation to use normal forces to the springs. Also created addMols method which can be used to inflate the balloon.
