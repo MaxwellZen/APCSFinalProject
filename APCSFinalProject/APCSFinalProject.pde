@@ -15,8 +15,6 @@ void setup() {
   println(b1.getPerimeter());
   b1.updateArea();
   println(b1.getArea());
-  b1.updateCenter();
-  //println(b1.getCenter());
   Stage.updateTime();
   Stage.updateGravity(100);
   Stage.updateAirFriction(1);
@@ -34,7 +32,6 @@ void draw() {
     d.update0();
   }
   b1.updateArea(); //<>//
-  b1.updateCenter();
   b1.updatePressure();
   b1.applyAirPressure();
   b1.addMols(10);
