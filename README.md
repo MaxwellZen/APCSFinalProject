@@ -54,4 +54,7 @@ Jerry: N/A \
 \
 6/7: \
 Jerry: Updated UML diagram. Read up on how to implement/simulate pressure within the balloon class to be prepared for tomorrow. \
-Maxwell: N/A
+Maxwell: N/A \
+\
+6/8: \
+Maxwell: Made a Display class to house methods for each demo and started working on the user interface. Also played with the order of softbody physics calculations to fix minor issue where particles got stuck on the edge of a rigidbody.
