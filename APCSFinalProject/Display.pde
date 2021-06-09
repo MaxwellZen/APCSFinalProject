@@ -40,4 +40,10 @@ public class Display {
     circle(x, 73, 20);
   }
   
+  void setup1() {
+  }
+  
+  void update1() {
+  }
+  
 }
