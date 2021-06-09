@@ -42,16 +42,16 @@ public class SoftBody{
   public void updateParticles(){
     for(int i = 0; i < particleArr.size(); i++){
       Particle p = particleArr.get(i);
+      p.applyForce(0, p.getMass()*Stage.g);
+      p.applyAirFriction();
+      p.updatePosition();
+      p.bounceFloor();
       for(int j = 0; j < i; j++){
         Particle p2 = particleArr.get(j);
         if (p.getYcor()>p2.getYcor()) p.collideParticle(p2);
         else p2.collideParticle(p);
       }
-      p.applyForce(0, p.getMass()*Stage.g);
       for (RigidBody r : Stage.rigidBodies) r.collide(p);
-      p.updatePosition();
-      p.bounceFloor();
-      p.applyAirFriction();
     }
   }
   
@@ -59,13 +59,9 @@ public class SoftBody{
     for(Spring s : springArr){
       s.display();
     }
-    ArrayList<Point> coords = new ArrayList<Point>();
     for(Particle p : particleArr){
       p.display();
-      coords.add(p.cor);
     }
-    RigidBody outline = new RigidBody(new Point().convexHull(coords));
-    outline.display();
   }
   
   public void addParticle(float x, float y){
