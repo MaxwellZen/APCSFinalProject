@@ -54,23 +54,32 @@ public class RigidBody {
     return true;
   }
   
+  public boolean inside(Particle p0) {
+    Point p = p0.cor;
+    if (p.getX()<minX || p.getX()>maxX || p.getY()<minY || p.getY()>maxY) return false;
+    for (int i = 0; i < vertices.size(); i++) {
+      Point p1 = vertices.get(i), p2 = vertices.get((i+1)%vertices.size()), p3 = vertices.get((i+2)%vertices.size());
+      if (p.distsq(p.closest(p1, p2))<p0.radius) return true;
+      if (p1.orientation(p2, p)==0 || p1.orientation(p2, p)==p1.orientation(p2, p3));
+      else return false;
+    }
+    return true;
+  }
+  
   public void collide(Particle p0) {
     int minIndex = 0;
     float minDist = p0.getCor().pointToLine(vertices.get(0), vertices.get(1));
+    Point close = p0.cor.closest(vertices.get(0), vertices.get(1));
     for(int i = 1; i < vertices.size(); i++){
       if(p0.getCor().pointToLine(vertices.get(i), vertices.get((i+1) % vertices.size())) < minDist){
         minDist = p0.getCor().pointToLine(vertices.get(i), vertices.get((i+1) % vertices.size()));
-        minIndex = 1;
+        minIndex = i;
+        close = p0.cor.closest(vertices.get(i), vertices.get((i+1)%vertices.size()));
       }
     }
-    if(inside(p0.getCor())){
+    if(inside(p0)){
       Point edge = vertices.get((minIndex + 1) % vertices.size()).minus(vertices.get((minIndex)));
-      p0.setCor(new Point(edge.y, - 1 * edge.x).scale((minDist + p0.radius) / edge.magnitude()).plus(p0.cor));
-      p0.setVel(p0.vel.bounce(edge));
-    }
-    else if(minDist < p0.radius){
-      Point edge = vertices.get((minIndex + 1) % vertices.size()).minus(vertices.get((minIndex)));
-      p0.setCor(new Point(edge.y, - 1 * edge.x).scale((-1 * minDist + p0.radius) / edge.magnitude()).plus(p0.cor));
+      p0.setCor(new Point(edge.y, - 1 * edge.x).normalize().scale(p0.radius).plus(close));
       p0.setVel(p0.vel.bounce(edge));
     }
     //Point p = p0.cor;
