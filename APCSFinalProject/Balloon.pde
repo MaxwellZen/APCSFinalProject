@@ -68,7 +68,7 @@ public class Balloon extends SoftBody{
   }
   
   public void addMols(float num){
-    if(mols + num >= 0){
+    if(mols + num > 0){
       mols += num;  
     }
   }
