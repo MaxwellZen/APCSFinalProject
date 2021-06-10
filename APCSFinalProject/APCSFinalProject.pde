@@ -1,14 +1,13 @@
 import java.io.*;
 import java.lang.*;
 import java.util.*;
-Balloon b1;
 Display d;
 
 void setup() {
   frameRate(200);
   size(1000, 600);
   d = new Display();
-  d.changeType(-1);
+  //d.changeType(-1);
   d.displaySetup();
   Stage.updateTime();
   Stage.updateGravity(100);
@@ -19,7 +18,7 @@ void setup() {
 void draw() {
   background(230);
   Stage.updateTime();
-  d.displayUpdate(); //<>// //<>//
+  d.displayUpdate(); //<>//
 }
 
 void mouseDragged(){
@@ -44,8 +43,8 @@ void mouseDragged(){
       r.minX += mouseX - pmouseX;
       r.maxX += mouseX - pmouseX;
       r.minY += mouseY - pmouseY;
-      r.maxY += mouseY - pmouseY; //<>// //<>//
-    } //<>// //<>//
+      r.maxY += mouseY - pmouseY; //<>//
+    } //<>//
   }
 }
 
