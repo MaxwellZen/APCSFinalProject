@@ -29,13 +29,6 @@ public class RigidBody {
   }
   
   public void display() {
-    //for(int i = ceil(minX); i <= floor(maxX); i++){
-    //  for(int j = ceil(minY); j <= floor(maxY); j++){
-    //    if(inside(new Point(i,j))){
-    //      set(i,j,#FF9637);
-    //    }
-    //  }
-    //}
     stroke(0);
     for (int i = 0; i < vertices.size(); i++) {
       Point v1 = vertices.get(i);
@@ -54,49 +47,40 @@ public class RigidBody {
     return true;
   }
   
-  public boolean inside(Particle p0) {
+  public void collide(Particle p0) {
+    
+    // bounding box test
     Point p = p0.cor;
-    if (p.getX()<minX || p.getX()>maxX || p.getY()<minY || p.getY()>maxY) return false;
+    if (p.getX()<minX-p0.radius || p.getX()>maxX+p0.radius || p.getY()<minY-p0.radius || p.getY()>maxY+p0.radius) return;
+    
+    float minDist = 1e10;
+    Point close = new Point(), edge = new Point();
+    boolean inHull = true, nearEdge = false;
+    
+    // loop through sides
     for (int i = 0; i < vertices.size(); i++) {
       Point p1 = vertices.get(i), p2 = vertices.get((i+1)%vertices.size()), p3 = vertices.get((i+2)%vertices.size());
-      if (p.distsq(p.closest(p1, p2))<p0.radius) return true;
-      if (p1.orientation(p2, p)==0 || p1.orientation(p2, p)==p1.orientation(p2, p3));
-      else return false;
-    }
-    return true;
-  }
-  
-  public void collide(Particle p0) {
-    int minIndex = 0;
-    float minDist = p0.getCor().pointToLine(vertices.get(0), vertices.get(1));
-    Point close = p0.cor.closest(vertices.get(0), vertices.get(1));
-    for(int i = 1; i < vertices.size(); i++){
-      if(p0.getCor().pointToLine(vertices.get(i), vertices.get((i+1) % vertices.size())) < minDist){
-        minDist = p0.getCor().pointToLine(vertices.get(i), vertices.get((i+1) % vertices.size()));
-        minIndex = i;
-        close = p0.cor.closest(vertices.get(i), vertices.get((i+1)%vertices.size()));
+      Point c = p.closest(p1, p2);
+      
+      // test if it's close to an edge
+      if (p.distsq(c)<sq(p0.radius)) nearEdge=true;
+      
+      // update the closest point/edge
+      if (p.distsq(c)<minDist) {
+        minDist=p.distsq(c);
+        edge = p2.minus(p1);
+        close=c;
       }
+      
+      // test if it's in the convex hull
+      if (p1.orientation(p2, p)!=0 && p1.orientation(p2, p)!=p1.orientation(p2, p3)) inHull=false;
     }
-    if(inside(p0)){
-      Point edge = vertices.get((minIndex + 1) % vertices.size()).minus(vertices.get((minIndex)));
+    
+    // test for, then perform collision
+    if (inHull || nearEdge) {
       p0.setCor(new Point(edge.y, - 1 * edge.x).normalize().scale(p0.radius).plus(close));
       p0.setVel(p0.vel.bounce(edge));
     }
-    //Point p = p0.cor;
-    //if (inside(p)) {
-    //  Point next = new Point(), side = new Point(2, 2);
-    //  float mindist = (1f / 0f);
-    //  for (int i = 0; i < vertices.size(); i++) {
-    //    Point candidate = p.closest(vertices.get(i), vertices.get((i+1)%vertices.size()));
-    //    if (p.distsq(candidate)<mindist) {
-    //      next = candidate;
-    //      mindist = p.distsq(candidate);
-    //      side = vertices.get(i).minus(vertices.get((i+1)%vertices.size()));
-    //    }
-    //  }
-    //  p0.setCor(next);
-    //  p0.setVel(p0.getVel().bounce(side));
-    //}
   }
   
 }
