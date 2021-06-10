@@ -156,6 +156,7 @@ public class Display {
     Stage.softBodies.clear();
     Stage.rigidBodies.clear();
     addBalloon(10, 7500, 10, 500, 300, 50);
+    addBalloon(20, 10000, 50, 500, 300, 100);
   }
   
   void update2() {
