@@ -106,10 +106,11 @@ public class Display {
     textSize(12);
     text("by Jerry Liang, Maxwell Zen", 500, 75);
     textSize(50);
-    text("Soft Body", 250, 225);
-    text("Balloon", 750, 225);
-    text("Soft Bodies and Balloons", 250, 375);
-    text("Lab", 250, 375);
+    text("Soft Body", 250, 245);
+    text("Balloon", 750, 245);
+    text("Soft Bodies", 250, 465);
+    text("and Balloons", 250, 535);
+    text("Lab", 250, 495);
   }
   
   void homeUpdate(){
@@ -136,10 +137,11 @@ public class Display {
     textSize(12);
     text("by Jerry Liang, Maxwell Zen", 500, 75);
     textSize(50);
-    text("Soft Body Demo", 250, 225);
-    text("Balloon", 750, 225);
-    text("Soft Bodies and Balloons", 250, 375);
-    text("Lab", 250, 375);
+    text("Soft Body", 250, 245);
+    text("Balloon", 750, 245);
+    text("Soft Bodies", 250, 465);
+    text("and Balloons", 250, 535);
+    text("Lab", 750, 495);
   }
   
   void setup1() {
