@@ -147,9 +147,11 @@ public class Display {
   void setup1() {
     Stage.softBodies.clear();
     Stage.rigidBodies.clear();
+    addSoftBody(25, 25, 200, 300, 1, 70);
   }
   
   void update1() {
+    updateSoftBodies();
   }
 
   void setup2() {
