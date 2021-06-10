@@ -48,6 +48,29 @@ void mouseDragged(){
   }
 }
 
+void mouseClicked(){
+  if(d.type == HOME){
+    if(mouseY >= 100){
+      if(mouseX <= 500){
+        if(mouseY <= 350){
+          d.changeType(DEMO1);
+        }
+        else{
+          d.changeType(DEMO3);
+        }
+      }
+      else{
+        if(mouseY <= 350){
+          d.changeType(DEMO2);
+        }
+        else{
+          d.changeType(LAB);
+        }
+      }  
+    }
+  }
+}
+
 void addSoftBody(float x, float y, 
   float len, float wid, 
   float density, float springConstant) {
