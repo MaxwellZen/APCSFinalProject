@@ -1,6 +1,7 @@
 import java.io.*;
 import java.lang.*;
 import java.util.*;
+//Particle p1;
 Balloon b1;
 Display d;
 int location = 0;
@@ -20,6 +21,7 @@ void setup() {
   Stage.updateAirFriction(1);
   Stage.updateAtmPressure(1);
   println(new Point(3,4).pointToLine(new Point(1.5,2.5), new Point(4.5,5.5)));
+  //p1 = new Particle(20,20,0,50,true);
 }
 
 void draw() {
@@ -39,6 +41,9 @@ void draw() {
   b1.updateSprings();
   b1.updateParticles();
   b1.display();
+  //p1.updatePosition();
+  //p1.display();
+  //for (RigidBody r : Stage.rigidBodies) r.collide(p1);
 }
 
 void mouseDragged(){
