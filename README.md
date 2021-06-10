@@ -61,5 +61,6 @@ Maxwell: Made a Display class to house methods for each demo and started working
 Jerry: Fixed balloon applyAirPressure by changing method of calculation to use normal forces to the springs. Also created addMols method which can be used to inflate the balloon. \
 \
 6/9: \
-Jerry: Worked on rewriting collide for rigid bodies such that it uses radius instead of center of particle. Removed extraneous code. Created changeMass method.
+Jerry: Worked on rewriting collide for rigid bodies such that it uses radius instead of center of particle. Removed extraneous code. Created changeMass method. \
+Maxwell: Helped debug the new collide method for rigidbody and rewrote some of the code to look nicer. 
 
