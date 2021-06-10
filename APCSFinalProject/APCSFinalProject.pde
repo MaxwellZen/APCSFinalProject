@@ -54,20 +54,43 @@ void mouseClicked(){
       if(mouseX <= 500){
         if(mouseY <= 350){
           d.changeType(DEMO1);
+          d.displaySetup();
         }
         else{
           d.changeType(DEMO3);
+          d.displaySetup();
         }
       }
       else{
         if(mouseY <= 350){
           d.changeType(DEMO2);
+          d.displaySetup();
         }
         else{
           d.changeType(LAB);
+          d.displaySetup();
         }
       }  
     }
+  }
+}
+
+void keyPressed(){
+  if (key == ','){
+    for (SoftBody s : Stage.softBodies) {
+      if(s instanceof Balloon){
+        Balloon b = (Balloon) s;
+        b.addMols(5);
+      }
+    }  
+  }
+  else if (key == '.'){
+    for (SoftBody s : Stage.softBodies) {
+      if(s instanceof Balloon){
+        Balloon b = (Balloon) s;
+        b.addMols(-5);
+      }
+    }  
   }
 }
 
@@ -86,7 +109,6 @@ void updateSoftBodies() {
       b.updateArea();
       b.updatePressure();
       b.applyAirPressure();
-      //b.addMols(10);
     }
     s.display();
   }
