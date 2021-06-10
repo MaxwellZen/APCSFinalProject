@@ -19,6 +19,7 @@ void setup() {
   Stage.updateGravity(100);
   Stage.updateAirFriction(1);
   Stage.updateAtmPressure(1);
+  println(new Point(3,4).pointToLine(new Point(1.5,2.5), new Point(4.5,5.5)));
 }
 
 void draw() {
