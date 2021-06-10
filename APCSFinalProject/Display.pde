@@ -147,7 +147,8 @@ public class Display {
   void setup1() {
     Stage.softBodies.clear();
     Stage.rigidBodies.clear();
-    addSoftBody(25, 25, 200, 300, 1, 70);
+    addSoftBody(400, 25, 200, 300, 1, 70);
+    addSoftBody(200, 480, 600, 100, 1, 70);
   }
   
   void update1() {
@@ -169,9 +170,14 @@ public class Display {
   void setup3() {
     Stage.softBodies.clear();
     Stage.rigidBodies.clear();
+    addSoftBody(25, 25, 200, 300, 1, 70);
+    addBalloon(10, 7500, 10, 500, 300, 50);
+    addRigidBody(new float[][] {{0, 400}, {300, 420}, {300, 500}, {0, 500}});
   }
   
   void update3() {
+    updateSoftBodies();
+    displayRigidBodies();
   }
   
   void setupLab() {
