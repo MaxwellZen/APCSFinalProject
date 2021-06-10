@@ -145,24 +145,32 @@ public class Display {
   }
   
   void setup1() {
+    Stage.softBodies.clear();
+    Stage.rigidBodies.clear();
   }
   
   void update1() {
   }
 
   void setup2() {
+    Stage.softBodies.clear();
+    Stage.rigidBodies.clear();
   }
   
   void update2() {
   }
   
   void setup3() {
+    Stage.softBodies.clear();
+    Stage.rigidBodies.clear();
   }
   
   void update3() {
   }
   
   void setupLab() {
+    Stage.softBodies.clear();
+    Stage.rigidBodies.clear();
   }
   
   void updateLab() {
