@@ -32,6 +32,7 @@ void mouseDragged(){
         Point dP = new Point(mouseX - pmouseX, mouseY - pmouseY);
         if (q.cor.plus(dP).getY() < height)
           q.setCor(q.cor.plus(dP));
+        q.setVel(q.vel.plus(dP));
       }
   }
   for(RigidBody r : Stage.rigidBodies){
@@ -80,7 +81,7 @@ void keyPressed(){
     for (SoftBody s : Stage.softBodies) {
       if(s instanceof Balloon){
         Balloon b = (Balloon) s;
-        b.addMols(5);
+        b.addMols(3);
       }
     }  
   }
@@ -88,7 +89,7 @@ void keyPressed(){
     for (SoftBody s : Stage.softBodies) {
       if(s instanceof Balloon){
         Balloon b = (Balloon) s;
-        b.addMols(-5);
+        b.addMols(-3);
       }
     }  
   }
