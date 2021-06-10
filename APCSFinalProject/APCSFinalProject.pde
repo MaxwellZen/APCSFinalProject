@@ -5,23 +5,17 @@ import java.util.*;
 Balloon b1;
 Display d;
 int location = 0;
-boolean needsetup = true;
 
 void setup() {
   frameRate(200);
   size(1000, 600);
   d = new Display();
-  b1 = new Balloon(10, 7500, 10, 500, 300, 50);
-  b1.display();
-  println(b1.getPerimeter());
-  b1.updateArea();
-  println(b1.getArea());
+
   Stage.updateTime();
   Stage.updateGravity(100);
   Stage.updateAirFriction(1);
   Stage.updateAtmPressure(1);
   println(new Point(3,4).pointToLine(new Point(1.5,2.5), new Point(4.5,5.5)));
-  //p1 = new Particle(20,20,0,50,true);
 }
 
 void draw() {
@@ -29,21 +23,11 @@ void draw() {
   Stage.updateTime();
   if (location==0) {
     if (needsetup) {
-      d.setup0();
+      d.testSetup();
       needsetup=false;
     }
-    d.update0();
-  }
-  b1.updateArea(); //<>//
-  b1.updatePressure();
-  b1.applyAirPressure();
-  b1.addMols(10);
-  b1.updateSprings();
-  b1.updateParticles();
-  b1.display();
-  //p1.updatePosition();
-  //p1.display();
-  //for (RigidBody r : Stage.rigidBodies) r.collide(p1);
+    d.testUpdate();
+  } //<>//
 }
 
 void mouseDragged(){
@@ -83,8 +67,19 @@ void updateSoftBodies() {
   for (SoftBody s : Stage.softBodies) {
     s.updateSprings();
     s.updateParticles();
+    if(s instanceof Balloon){
+      Balloon b = (Balloon) s;
+      b.updateArea();
+      b.updatePressure();
+      b.applyAirPressure();
+      b.addMols(10);
+    }
     s.display();
   }
+}
+
+void addBalloon(float m, float a, int n, float x, float y, float k) {
+  Stage.softBodies.add(new Balloon(m,a,n,x,y,k));
 }
 
 void addRigidBody(float[][] coords) {
