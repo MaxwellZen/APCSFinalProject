@@ -3,6 +3,7 @@ final static int HOME = 0;
 final static int DEMO1 = 1;
 final static int DEMO2 = 2;
 final static int DEMO3 = 3;
+final static int LAB = 4;
 
 public class Display {
   
@@ -85,14 +86,30 @@ public class Display {
     circle(x, 73, 20);
   }
   
-    void homeSetup(){
+  void homeSetup(){
     Stage.softBodies.clear();
     Stage.rigidBodies.clear();
+    fill(#FFF07D);
+    rect(0,0,1000,100);
+    fill(#FFB491);
+    rect(0,100,500,250);
+    fill(#96E1FF);
+    rect(500,100,500,250);
   }
   
   void homeUpdate(){
     Stage.softBodies.clear();
     Stage.rigidBodies.clear();
+    fill(#FFF07D);
+    rect(0,0,1000,100);
+    fill(#FFF07D);
+    rect(0,0,1000,100);
+    fill(#FFF07D);
+    rect(0,0,1000,100);
+    fill(#FFB491);
+    rect(0,100,500,250);
+    fill(#96E1FF);
+    rect(500,100,500,250);
   }
   
   void setup1() {
@@ -111,6 +128,12 @@ public class Display {
   }
   
   void update3() {
+  }
+  
+  void setupLab() {
+  }
+  
+  void updateLab() {
   }
   
   void changeType(int VALUE){
