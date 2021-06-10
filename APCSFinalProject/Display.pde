@@ -95,6 +95,21 @@ public class Display {
     rect(0,100,500,250);
     fill(#96E1FF);
     rect(500,100,500,250);
+    fill(#46FF50);
+    rect(0,350,500,250);
+    fill(#FF78FA);
+    rect(500,350,500,250);
+    fill(0);
+    textAlign(CENTER);
+    textSize(32);
+    text("Springing into Action", 500, 50);
+    textSize(12);
+    text("by Jerry Liang, Maxwell Zen", 500, 75);
+    textSize(50);
+    text("Soft Body", 250, 225);
+    text("Balloon", 750, 225);
+    text("Soft Bodies and Balloons", 250, 375);
+    text("Lab", 250, 375);
   }
   
   void homeUpdate(){
@@ -110,6 +125,21 @@ public class Display {
     rect(0,100,500,250);
     fill(#96E1FF);
     rect(500,100,500,250);
+    fill(#46FF50);
+    rect(0,350,500,250);
+    fill(#FF78FA);
+    rect(500,350,500,250);
+    fill(0);
+    textAlign(CENTER);
+    textSize(32);
+    text("Springing into Action", 500, 50);
+    textSize(12);
+    text("by Jerry Liang, Maxwell Zen", 500, 75);
+    textSize(50);
+    text("Soft Body Demo", 250, 225);
+    text("Balloon", 750, 225);
+    text("Soft Bodies and Balloons", 250, 375);
+    text("Lab", 250, 375);
   }
   
   void setup1() {
