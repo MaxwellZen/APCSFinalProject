@@ -53,6 +53,7 @@ public class SoftBody{
       }
       for (RigidBody r : Stage.rigidBodies) r.collide(p);
     }
+    updateParticleCollide();
   }
   
   public void display(){

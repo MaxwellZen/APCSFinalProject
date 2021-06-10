@@ -1,33 +1,25 @@
 import java.io.*;
 import java.lang.*;
 import java.util.*;
-//Particle p1;
 Balloon b1;
 Display d;
-int location = 0;
 
 void setup() {
   frameRate(200);
   size(1000, 600);
   d = new Display();
-
+  d.changeType(-1);
+  d.displaySetup();
   Stage.updateTime();
   Stage.updateGravity(100);
   Stage.updateAirFriction(1);
   Stage.updateAtmPressure(1);
-  println(new Point(3,4).pointToLine(new Point(1.5,2.5), new Point(4.5,5.5)));
 }
 
 void draw() {
   background(230);
   Stage.updateTime();
-  if (location==0) {
-    if (needsetup) {
-      d.testSetup();
-      needsetup=false;
-    }
-    d.testUpdate();
-  } //<>//
+  d.displayUpdate(); //<>// //<>//
 }
 
 void mouseDragged(){
@@ -52,8 +44,8 @@ void mouseDragged(){
       r.minX += mouseX - pmouseX;
       r.maxX += mouseX - pmouseX;
       r.minY += mouseY - pmouseY;
-      r.maxY += mouseY - pmouseY; //<>//
-    } //<>//
+      r.maxY += mouseY - pmouseY; //<>// //<>//
+    } //<>// //<>//
   }
 }
 
@@ -72,7 +64,7 @@ void updateSoftBodies() {
       b.updateArea();
       b.updatePressure();
       b.applyAirPressure();
-      b.addMols(10);
+      //b.addMols(10);
     }
     s.display();
   }
@@ -88,4 +80,16 @@ void addRigidBody(float[][] coords) {
 
 void displayRigidBodies() {
   for (RigidBody r : Stage.rigidBodies) r.display();
+}
+
+void updateParticleCollide(){
+  for(int i = 0; i < Stage.softBodies.size() - 1; i++){
+    for(int j = i; j < Stage.softBodies.size(); j++){
+      for(Particle p1 : Stage.softBodies.get(i).particleArr){
+        for(Particle p2 : Stage.softBodies.get(j).particleArr){
+          p1.collideParticle(p2);
+        }
+      }
+    }
+  }
 }
