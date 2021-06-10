@@ -55,21 +55,39 @@ public class RigidBody {
   }
   
   public void collide(Particle p0) {
-    Point p = p0.cor;
-    if (inside(p)) {
-      Point next = new Point(), side = new Point(2, 2);
-      float mindist = (1f / 0f);
-      for (int i = 0; i < vertices.size(); i++) {
-        Point candidate = p.closest(vertices.get(i), vertices.get((i+1)%vertices.size()));
-        if (p.distsq(candidate)<mindist) {
-          next = candidate;
-          mindist = p.distsq(candidate);
-          side = vertices.get(i).minus(vertices.get((i+1)%vertices.size()));
-        }
+    int minIndex = 0;
+    float minDist = p0.getCor().pointToLine(vertices.get(0), vertices.get(1));
+    for(int i = 1; i < vertices.size(); i++){
+      if(p0.getCor().pointToLine(vertices.get(i), vertices.get((i+1) % vertices.size())) < minDist){
+        minDist = p0.getCor().pointToLine(vertices.get(i), vertices.get((i+1) % vertices.size()));
+        minIndex = 1;
       }
-      p0.setCor(next);
-      p0.setVel(p0.getVel().bounce(side));
     }
+    if(inside(p0.getCor())){
+      Point edge = vertices.get((minIndex + 1) % vertices.size()).minus(vertices.get((minIndex)));
+      p0.setCor(new Point(edge.y, - 1 * edge.x).scale((minDist + p0.radius) / edge.magnitude()).plus(p0.cor));
+      p0.setVel(p0.vel.bounce(edge));
+    }
+    else if(minDist < p0.radius){
+      Point edge = vertices.get((minIndex + 1) % vertices.size()).minus(vertices.get((minIndex)));
+      p0.setCor(new Point(edge.y, - 1 * edge.x).scale((-1 * minDist + p0.radius) / edge.magnitude()).plus(p0.cor));
+      p0.setVel(p0.vel.bounce(edge));
+    }
+    //Point p = p0.cor;
+    //if (inside(p)) {
+    //  Point next = new Point(), side = new Point(2, 2);
+    //  float mindist = (1f / 0f);
+    //  for (int i = 0; i < vertices.size(); i++) {
+    //    Point candidate = p.closest(vertices.get(i), vertices.get((i+1)%vertices.size()));
+    //    if (p.distsq(candidate)<mindist) {
+    //      next = candidate;
+    //      mindist = p.distsq(candidate);
+    //      side = vertices.get(i).minus(vertices.get((i+1)%vertices.size()));
+    //    }
+    //  }
+    //  p0.setCor(next);
+    //  p0.setVel(p0.getVel().bounce(side));
+    //}
   }
   
 }
