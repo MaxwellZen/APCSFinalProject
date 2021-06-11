@@ -59,23 +59,6 @@ public class Display {
       updateLab();
   }
   
-  void testSetup() {
-    Stage.softBodies.clear();
-    Stage.rigidBodies.clear();
-    addSoftBody(25, 25, 200, 300, 1, 70);
-    addBalloon(10, 7500, 10, 500, 300, 50);
-    if (resetparams) setDefaultParameters();
-    resetparams=true;
-    addRigidBody(new float[][] {{0, 400}, {300, 420}, {300, 500}, {0, 500}});
-  }
-  
-  void testUpdate() {
-    updateSoftBodies();
-    displayRigidBodies();
-    updateSliders();
-    drawSliders();
-  }
-  
   void homeSetup(){
     Stage.softBodies.clear();
     Stage.rigidBodies.clear();
