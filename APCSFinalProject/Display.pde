@@ -8,7 +8,7 @@ final static int LAB = 4;
 public class Display {
   
   int type;
-  float sbSpringConstant, sbSpringDampening, stageGravity, x1, x2, x3;
+  float sbSpringConstant, sbSpringDampening, stageGravity, particleMass, x1, x2, x3, x4;
   
   public Display() {
     super();
@@ -57,13 +57,15 @@ public class Display {
     x2 = 810+sbSpringDampening*180;
     stageGravity = 100;
     x3 = 810+stageGravity*180/400;
+    particleMass=0.1;
+    x4 = 810+particleMass*180;
     addRigidBody(new float[][] {{0, 400}, {300, 420}, {300, 500}, {0, 500}});
   }
   
   void testUpdate() {
     updateSoftBodies();
     displayRigidBodies();
-    if (mousePressed) {
+    if (mousePressed && mouseX>800) {
       if (abs(mouseY-73)<=10) {
         x1 = min(990, max(810, mouseX));
         sbSpringConstant = (x1 - 810)*250/180;
@@ -82,6 +84,13 @@ public class Display {
         x3 = min(990, max(810, mouseX));
         stageGravity = (x3-810)*400/180;
         Stage.updateGravity(stageGravity);
+      }
+      if (abs(mouseY-268)<=10) {
+        x4 = min(990, max(810, mouseX));
+        particleMass = (x4-810)/180;
+        for (SoftBody sb : Stage.softBodies)
+          for (Particle p : sb.particleArr)
+            p.mass=particleMass;
       }
     }
     noStroke();
@@ -103,6 +112,10 @@ public class Display {
     rect(810, 200, 180, 6);
     fill(180);
     circle(x3, 203, 20);
+    text("Particle Mass", 830, 245);
+    rect(810, 265, 180, 6);
+    fill(180);
+    circle(x4, 268, 20);
   }
   
   void homeSetup(){
