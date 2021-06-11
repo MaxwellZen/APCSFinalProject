@@ -309,6 +309,8 @@ public class Display {
   }
   
   void updateLab() {
+    updateSoftBodies();
+    displayRigidBodies();
     noStroke();
     fill(255);
     rect(800, 0, 200, 600);
