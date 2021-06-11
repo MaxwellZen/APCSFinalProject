@@ -130,6 +130,13 @@ void keyPressed(){
         }
         addBalloon(10, sq(d.cradius) * PI, 20, mouseX, y, 50);
       }
+      if(d.object == RB){
+        float y = mouseY;
+        if(mouseY + d.cwidth + 5 > height){
+          y = height - d.cradius - 5;
+        }
+        addRigidBody(new float[][]{{mouseX, y}, {mouseX, y + d.cwidth}, {mouseX + d.clength, y + d.cwidth}, {mouseX + d.clength, y}});
+      }
     }
   }
 }
