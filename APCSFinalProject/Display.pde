@@ -187,9 +187,15 @@ public class Display {
   void setup3() {
     Stage.softBodies.clear();
     Stage.rigidBodies.clear();
-    addSoftBody(25, 25, 200, 300, 1, 70);
-    addBalloon(10, 7500, 10, 500, 300, 50);
-    addRigidBody(new float[][] {{0, 400}, {300, 420}, {300, 500}, {0, 500}});
+    //addSoftBody(25, 25, 200, 300, 1, 70);
+    //addBalloon(10, 7500, 10, 500, 300, 50);
+    addSoftBody(0.8*750,25, 100, 200, 1, 80);
+    addBalloon(10, 7500, 10, 0.8*200, 175, 50);
+    //addRigidBody(new float[][] {{0, 400}, {300, 420}, {300, 500}, {0, 500}});
+    addRigidBody(new float[] {0.8*51,157,0.8*81,148,0.8*252,443,0.8*212,460});
+    addRigidBody(new float[] {0.8*212,460,0.8*252,443,0.8*500,519,0.8*500,550});
+    addRigidBody(new float[] {0.8*500,550,0.8*500,519,0.8*781,436,0.8*815,456});
+    addRigidBody(new float[] {0.8*815,456,0.8*781,436,0.8*898,176,0.8*930,186});
     if (resetparams) setDefaultParameters();
     else updateParams();
     resetparams=true;
@@ -198,6 +204,8 @@ public class Display {
   void update3() {
     updateSoftBodies();
     displayRigidBodies();
+    updateSliders();
+    drawSliders();
     drawButtons();
   }
   
