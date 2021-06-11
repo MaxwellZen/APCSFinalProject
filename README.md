@@ -8,11 +8,10 @@ Group Name: Springing into Action\
 \
 Group Members: Jerry Liang, Maxwell Zen\
 \
-Brief Project Description:  2D soft body simulation composed of many particles connected by springs. We'd implement spring physics and rigid body collision, and let the user change parameters like spring strength, gravity, particle density, and friction. Also, if we have time, we could repurpose the same mechanics to simulate other interesting things. \
+Brief Project Description: 2D soft body simulation composed of many particles connected by springs. We'd implement spring physics and rigid body collision, and let the user change parameters like spring strength, gravity, particle mass, friction, and number of moles (for Balloon). The simulation will also include balloons and rigid bodies. \
 \
 Compile/Run Instructions:\
-\
-LOREM IPSUM\
+Press run on Processing. This will lead you to the home page. On the home page, there are 4 options, the Soft Body Demo, Balloon Demo, Soft Bodies and Ballons Demo, and the Lab. In each, soft bodies and rigid bodies (including balloons) can be dragged with mouse to desired location. There are sliders on the right hand side that can adjust factors such as spring constant, spring dampening, gravity, particle mass, air friction, and atmospheric pressure. You can pump air into balloons by holding "," (comma key) and take air out of balloons by holding "." (period key). You can also return to the homepage by clicking on the button in the top left corner. There are a few things to note about changing these variables: you should not attempt to drag soft/rigid bodies below the ground or attempt to embed them into each other; you should not rapidly change any of the variables (e.g. spring constant) because springs/particles will need to recalculate each frame and it could cause the softbody to explode.\
 \
 Development Log:\
 \
@@ -62,5 +61,7 @@ Jerry: Fixed balloon applyAirPressure by changing method of calculation to use n
 \
 6/9: \
 Jerry: Worked on rewriting collide for rigid bodies such that it uses radius instead of center of particle. Removed extraneous code. Created changeMass method. Updated UML and outline. \
-Maxwell: Helped debug the new collide method for rigidbody and rewrote some of the code to look nicer. 
-
+Maxwell: Helped debug the new collide method for rigidbody and rewrote some of the code to look nicer. \
+\
+6/10: \
+Jerry: Created home page and added preliminary simulations for demo (rewrote structure of Display). Wrote method to allow for particles in different soft bodies to collide with each other. Cleaned up documentation + UML diagrams. 
