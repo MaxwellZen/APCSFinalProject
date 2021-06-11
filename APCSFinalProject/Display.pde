@@ -13,6 +13,9 @@ public class Display {
   int type;
   int object;
   float x1, x2, x3, x4, x5, x6;
+  float cradius;
+  float clength;
+  float cwidth;
   
   public Display() {
     super();
@@ -331,7 +334,8 @@ public class Display {
     text("RB", 945 + 5, 50);
     
     if(object == SB){
-      float clength=0, cwidth=0;
+      clength=0; 
+      cwidth=0;
       if (mousePressed && mouseX>800) {
         if (abs(mouseY-138)<=10) {
           x1 = min(990, max(810, mouseX));
@@ -356,8 +360,9 @@ public class Display {
       fill(180);
       circle(x2, 203, 20);
     }
+    
     if(object == B){
-      float cradius=0;
+      cradius=0;
       if (mousePressed && mouseX>800) {
         if (abs(mouseY-138)<=10) {
           x1 = min(990, max(810, mouseX));
@@ -373,8 +378,10 @@ public class Display {
       fill(180);
       circle(x1, 138, 20);
     }
+    
     if(object == RB){
-      float clength=0, cwidth=0;
+      clength=0; 
+      cwidth=0;
       if (mousePressed && mouseX>800) {
         if (abs(mouseY-138)<=10) {
           x1 = min(990, max(810, mouseX));
