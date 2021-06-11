@@ -65,4 +65,4 @@ Maxwell: Helped debug the new collide method for rigidbody and rewrote some of t
 \
 6/10 - 6/11: \
 Jerry: Created home page and added preliminary simulations for demo (rewrote structure of Display). Wrote lab demo and implemented safety check to prevent users from putting rigid bodies inside soft bodies. Wrote method to allow for particles in different soft bodies to collide with each other. Cleaned up documentation + UML diagrams. \
-Maxwell: Rewrote demo simulations + homepage to be much more visually appealing. Changed slider bounds + wrote easier constructor for rigid bodies. Deleted extraneous code used for testing purposes. \
+Maxwell: Rewrote demo simulations + homepage to be much more visually appealing. Changed slider bounds + wrote easier constructor for rigid bodies. Deleted extraneous code used for testing purposes.
