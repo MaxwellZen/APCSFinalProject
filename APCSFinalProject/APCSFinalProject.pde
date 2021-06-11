@@ -10,7 +10,7 @@ void setup() {
   sen = createFont("Sen-Regular.ttf", 6);
   textFont(sen);
   d = new Display();
-  d.changeType(-1);
+  d.changeType(3);
   d.displaySetup();
   Stage.updateTime();
   Stage.updateGravity(100);
@@ -83,6 +83,7 @@ void mouseClicked(){
       d.displaySetup();
     }
     if((mouseX >= 25 && mouseX<= 125) && (mouseY >= 75 && mouseY<= 115)){
+      d.resetparams=false;
       d.displaySetup();
     }
     if((mouseX >= 830 && mouseX<= 870) && (mouseY >= 25 && mouseY<= 65)){
@@ -135,7 +136,7 @@ void keyPressed(){
         if(mouseY + d.cwidth + 5 > height){
           y = height - d.cradius - 5;
         }
-        addRigidBody(new float[][]{{mouseX, y}, {mouseX, y + d.cwidth}, {mouseX + d.clength, y + d.cwidth}, {mouseX + d.clength, y}});
+        addRigidBody(new float[][]{{mouseX, y}, {mouseX + d.clength, y}, {mouseX + d.clength, y + d.cwidth}, {mouseX, y + d.cwidth}});
       }
     }
   }
@@ -167,6 +168,10 @@ void addBalloon(float m, float a, int n, float x, float y, float k) {
 }
 
 void addRigidBody(float[][] coords) {
+  Stage.rigidBodies.add(new RigidBody(coords));
+}
+
+void addRigidBody(float[] coords) {
   Stage.rigidBodies.add(new RigidBody(coords));
 }
 
