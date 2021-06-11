@@ -1,4 +1,3 @@
-final static int TEST = -1;
 final static int HOME = 0;
 final static int DEMO1 = 1;
 final static int DEMO2 = 2;
@@ -29,9 +28,6 @@ public class Display {
   }
   
   void displaySetup(){
-    if(type == TEST){
-      testSetup();
-    }
     if(type == HOME){
       homeSetup();
     }
@@ -51,8 +47,6 @@ public class Display {
   }
   
   void displayUpdate(){
-    if(type == TEST)
-      testUpdate();
     if(type == HOME)
       homeUpdate();
     if(type == DEMO1)

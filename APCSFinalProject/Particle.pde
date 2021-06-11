@@ -87,7 +87,7 @@ public class Particle{
   
   public void display(){
     noStroke();
-    fill(#0044ff); //Light blue
+    fill(#0044ff);
     circle(cor.getX(), cor.getY(), 2*radius);
   }
   

@@ -66,10 +66,5 @@ public class SoftBody{
   public void addSpring(Particle p1, Particle p2, float k){
     springArr.add(new Spring(p1,p2,k));
   }
-
-  public void changeMass(float m){
-    for(Particle p : particleArr){
-      p.mass = m;
-    }
-  }
+  
 }

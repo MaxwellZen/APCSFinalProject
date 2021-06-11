@@ -32,10 +32,6 @@ public class Point {
     y=newY;
   }
   
-  public float magnitude(){
-    return sqrt(sq(x) + sq(y));
-  }
-  
   public float distsq(Point other) {
     return sq(x-other.getX()) + sq(y-other.getY());
   }
@@ -127,10 +123,6 @@ public class Point {
       ans.add(p.get(i));
     }
     return ans;
-  }
-  
-  float pointToLine(Point p1, Point p2){
-    return distsq(closest(p1, p2));
   }
   
 }
