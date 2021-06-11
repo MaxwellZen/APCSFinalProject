@@ -114,6 +114,24 @@ void keyPressed(){
       }
     }  
   }
+  else if (key == 'x'){
+    if(d.type == LAB && mouseX <= 800){
+      if(d.object == SB){
+        float y = mouseY;
+        if(mouseY + d.cwidth + 5 > height){
+          y = height - d.cwidth - 5;
+        }
+        addSoftBody(mouseX, y, d.clength, d.cwidth, 1, 70);
+      }
+      if(d.object == B){
+        float y = mouseY;
+        if(mouseY + d.cradius + 5 > height){
+          y = height - d.cradius - 5;
+        }
+        addBalloon(10, sq(d.cradius) * PI, 20, mouseX, y, 50);
+      }
+    }
+  }
 }
 
 void addSoftBody(float x, float y, 
