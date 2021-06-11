@@ -78,8 +78,11 @@ void mouseClicked(){
     }
   }
   else{
-    if((mouseX >= 25 && mouseX<= 125) && (mouseY >= 25 && mouseX<= 65)){
+    if((mouseX >= 25 && mouseX<= 125) && (mouseY >= 25 && mouseY<= 65)){
       d.changeType(HOME);
+      d.displaySetup();
+    }
+    if((mouseX >= 25 && mouseX<= 125) && (mouseY >= 75 && mouseY<= 115)){
       d.displaySetup();
     }
   }
