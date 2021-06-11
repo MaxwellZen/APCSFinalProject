@@ -266,10 +266,60 @@ public class Display {
     Stage.softBodies.clear();
     Stage.rigidBodies.clear();
     drawButtons();
+    noStroke();
+    fill(255);
+    rect(800, 0, 200, 600);
+    stroke(0);
+    fill(#469BFF);
+    rect(825,25,40,40);
+    fill(0);
+    textSize(12);
+    textAlign(CENTER);
+    text("SB", 845, 50);
+    fill(#469BFF);
+    rect(825,25,40,40);
+    fill(0);
+    textSize(12);
+    textAlign(CENTER);
+    text("SB", 845, 50);
+    fill(#469BFF);
+    rect(875,25,40,40);
+    fill(0);
+    textSize(12);
+    textAlign(CENTER);
+    text("B", 895, 50);
+    fill(#469BFF);
+    rect(925,25,40,40);
+    fill(0);
+    textSize(12);
+    textAlign(CENTER);
+    text("RB", 945, 50);
   }
   
   void updateLab() {
+    noStroke();
+    fill(255);
+    rect(800, 0, 200, 600);
+    stroke(0);
     drawButtons();
+    fill(#469BFF);
+    rect(825,25,40,40);
+    fill(0);
+    textSize(12);
+    textAlign(CENTER);
+    text("SB", 845, 50);
+    fill(#469BFF);
+    rect(875,25,40,40);
+    fill(0);
+    textSize(12);
+    textAlign(CENTER);
+    text("B", 895, 50);
+    fill(#469BFF);
+    rect(925,25,40,40);
+    fill(0);
+    textSize(12);
+    textAlign(CENTER);
+    text("RB", 945, 50);
   }
   
   void changeType(int VALUE){
