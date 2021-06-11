@@ -68,6 +68,11 @@ public class Display {
   void testUpdate() {
     updateSoftBodies();
     displayRigidBodies();
+    updateSliders();
+    drawSliders();
+  }
+  
+  void updateSliders() {
     if (mousePressed && mouseX>800) {
       if (abs(mouseY-73)<=10) {
         x1 = min(990, max(810, mouseX));
@@ -103,6 +108,9 @@ public class Display {
         Stage.updateAtmPressure((x6-810)*5/180);
       }
     }
+  }
+  
+  void drawSliders() {
     noStroke();
     fill(255);
     rect(800, 0, 200, 600);
@@ -137,6 +145,21 @@ public class Display {
     rect(810, 395, 180, 6);
     fill(180);
     circle(x6, 398, 20);
+  }
+  
+  void drawButtons() {
+    fill(#FFA028);
+    rect(25,25,100,40);
+    fill(0);
+    textSize(20);
+    textAlign(CENTER);
+    text("HOME", 75, 50);
+    fill(#F578FF);
+    rect(25,75,100,40);
+    fill(0);
+    textSize(20);
+    textAlign(CENTER);
+    text("RESET", 75, 100);
   }
   
   void homeSetup(){
@@ -202,34 +225,12 @@ public class Display {
     Stage.rigidBodies.clear();
     addSoftBody(400, 25, 200, 300, 1, 70);
     addSoftBody(200, 480, 600, 100, 1, 70);
-    fill(#FFF07D);
-    rect(25,25,100,40);
-    fill(0);
-    textSize(20);
-    textAlign(CENTER);
-    text("HOME", 75, 50);
-    fill(#F578FF);
-    rect(25,75,100,40);
-    fill(0);
-    textSize(20);
-    textAlign(CENTER);
-    text("RESET", 75, 100);
+    drawButtons();
   }
   
   void update1() {
     updateSoftBodies();
-    fill(#FFA028);
-    rect(25,25,100,40);
-    fill(0);
-    textSize(20);
-    textAlign(CENTER);
-    text("HOME", 75, 50);
-    fill(#F578FF);
-    rect(25,75,100,40);
-    fill(0);
-    textSize(20);
-    textAlign(CENTER);
-    text("RESET", 75, 100);
+    drawButtons();
   }
 
   void setup2() {
@@ -237,35 +238,13 @@ public class Display {
     Stage.rigidBodies.clear();
     addBalloon(10, 7500, 10, 500, 300, 50);
     addBalloon(20, 10000, 50, 500, 300, 100);
-    fill(#FFA028);
-    rect(25,25,100,40);
-    fill(0);
-    textSize(20);
-    textAlign(CENTER);
-    text("HOME", 75, 50);
-    fill(#F578FF);
-    rect(25,75,100,40);
-    fill(0);
-    textSize(20);
-    textAlign(CENTER);
-    text("RESET", 75, 100);
+    drawButtons();
   }
   
   void update2() {
     updateSoftBodies();
     displayRigidBodies();
-    fill(#FFA028);
-    rect(25,25,100,40);
-    fill(0);
-    textSize(20);
-    textAlign(CENTER);
-    text("HOME", 75, 50);
-    fill(#F578FF);
-    rect(25,75,100,40);
-    fill(0);
-    textSize(20);
-    textAlign(CENTER);
-    text("RESET", 75, 100);
+    drawButtons();
   }
   
   void setup3() {
@@ -274,75 +253,23 @@ public class Display {
     addSoftBody(25, 25, 200, 300, 1, 70);
     addBalloon(10, 7500, 10, 500, 300, 50);
     addRigidBody(new float[][] {{0, 400}, {300, 420}, {300, 500}, {0, 500}});
-    fill(#FFA028);
-    rect(25,25,100,40);
-    fill(0);
-    textSize(20);
-    textAlign(CENTER);
-    text("HOME", 75, 50);
-    fill(#F578FF);
-    rect(25,75,100,40);
-    fill(0);
-    textSize(20);
-    textAlign(CENTER);
-    text("RESET", 75, 100);
+    drawButtons();
   }
   
   void update3() {
     updateSoftBodies();
     displayRigidBodies();
-    fill(#FFA028);
-    rect(25,25,100,40);
-    fill(0);
-    textSize(20);
-    textAlign(CENTER);
-    text("HOME", 75, 50);
-    fill(#F578FF);
-    rect(25,75,100,40);
-    fill(0);
-    textSize(20);
-    textAlign(CENTER);
-    text("HOME", 75, 100);
+    drawButtons();
   }
   
   void setupLab() {
     Stage.softBodies.clear();
     Stage.rigidBodies.clear();
-    noStroke();
-    fill(255);
-    rect(800, 0, 200, 600);
-    stroke(0);
-    fill(#FFA028);
-    rect(25,25,100,40);
-    fill(0);
-    textSize(20);
-    textAlign(CENTER);
-    text("HOME", 75, 50);
-    fill(#F578FF);
-    rect(25,75,100,40);
-    fill(0);
-    textSize(20);
-    textAlign(CENTER);
-    text("RESET", 75, 100);
+    drawButtons();
   }
   
   void updateLab() {
-    fill(#FFA028);
-    rect(25,25,100,40);
-    noStroke();
-    fill(255);
-    rect(800, 0, 200, 600);
-    fill(0);
-    stroke(0);
-    textSize(20);
-    textAlign(CENTER);
-    text("HOME", 75, 50);
-    fill(#F578FF);
-    rect(25,75,100,40);
-    fill(0);
-    textSize(20);
-    textAlign(CENTER);
-    text("RESET", 75, 100);
+    drawButtons();
   }
   
   void changeType(int VALUE){
