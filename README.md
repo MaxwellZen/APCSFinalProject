@@ -63,6 +63,5 @@ Jerry: Fixed balloon applyAirPressure by changing method of calculation to use n
 Jerry: Worked on rewriting collide for rigid bodies such that it uses radius instead of center of particle. Removed extraneous code. Created changeMass method. Updated UML and outline. \
 Maxwell: Helped debug the new collide method for rigidbody and rewrote some of the code to look nicer. \
 \
-6/10: \ 
+6/10: \
 Jerry: Created home page and added preliminary simulations for demo (rewrote structure of Display). Wrote method to allow for particles in different soft bodies to collide with each other. Cleaned up documentation + UML diagrams. 
-
