@@ -203,6 +203,12 @@ public class Display {
     textSize(20);
     textAlign(CENTER);
     text("HOME", 75, 50);
+    fill(#F578FF);
+    rect(25,75,100,40);
+    fill(0);
+    textSize(20);
+    textAlign(CENTER);
+    text("RESET", 75, 100);
   }
   
   void update1() {
@@ -213,6 +219,12 @@ public class Display {
     textSize(20);
     textAlign(CENTER);
     text("HOME", 75, 50);
+    fill(#F578FF);
+    rect(25,75,100,40);
+    fill(0);
+    textSize(20);
+    textAlign(CENTER);
+    text("RESET", 75, 100);
   }
 
   void setup2() {
@@ -226,6 +238,12 @@ public class Display {
     textSize(20);
     textAlign(CENTER);
     text("HOME", 75, 50);
+    fill(#F578FF);
+    rect(25,75,100,40);
+    fill(0);
+    textSize(20);
+    textAlign(CENTER);
+    text("RESET", 75, 100);
   }
   
   void update2() {
@@ -237,6 +255,12 @@ public class Display {
     textSize(20);
     textAlign(CENTER);
     text("HOME", 75, 50);
+    fill(#F578FF);
+    rect(25,75,100,40);
+    fill(0);
+    textSize(20);
+    textAlign(CENTER);
+    text("RESET", 75, 100);
   }
   
   void setup3() {
@@ -251,6 +275,12 @@ public class Display {
     textSize(20);
     textAlign(CENTER);
     text("HOME", 75, 50);
+    fill(#F578FF);
+    rect(25,75,100,40);
+    fill(0);
+    textSize(20);
+    textAlign(CENTER);
+    text("RESET", 75, 100);
   }
   
   void update3() {
@@ -262,6 +292,12 @@ public class Display {
     textSize(20);
     textAlign(CENTER);
     text("HOME", 75, 50);
+    fill(#F578FF);
+    rect(25,75,100,40);
+    fill(0);
+    textSize(20);
+    textAlign(CENTER);
+    text("HOME", 75, 100);
   }
   
   void setupLab() {
@@ -273,6 +309,12 @@ public class Display {
     textSize(20);
     textAlign(CENTER);
     text("HOME", 75, 50);
+    fill(#F578FF);
+    rect(25,75,100,40);
+    fill(0);
+    textSize(20);
+    textAlign(CENTER);
+    text("RESET", 75, 100);
   }
   
   void updateLab() {
@@ -282,6 +324,12 @@ public class Display {
     textSize(20);
     textAlign(CENTER);
     text("HOME", 75, 50);
+    fill(#F578FF);
+    rect(25,75,100,40);
+    fill(0);
+    textSize(20);
+    textAlign(CENTER);
+    text("RESET", 75, 100);
   }
   
   void changeType(int VALUE){
