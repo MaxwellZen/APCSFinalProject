@@ -10,7 +10,6 @@ void setup() {
   sen = createFont("Sen-Regular.ttf", 6);
   textFont(sen);
   d = new Display();
-  d.changeType(3);
   d.displaySetup();
   Stage.updateTime();
   Stage.updateGravity(100);
@@ -21,8 +20,8 @@ void setup() {
 void draw() {
   background(230);
   Stage.updateTime();
-  d.displayUpdate(); //<>//
-}
+  d.displayUpdate();
+} //<>//
 
 void mouseDragged(){
   for(SoftBody sb : Stage.softBodies){
@@ -47,9 +46,9 @@ void mouseDragged(){
       r.minX += mouseX - pmouseX;
       r.maxX += mouseX - pmouseX;
       r.minY += mouseY - pmouseY;
-      r.maxY += mouseY - pmouseY; //<>//
+      r.maxY += mouseY - pmouseY;
     } //<>//
-  }
+  } //<>//
 }
 
 void mouseClicked(){

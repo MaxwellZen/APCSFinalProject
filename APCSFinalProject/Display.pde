@@ -17,6 +17,7 @@ public class Display {
   float clength;
   float cwidth;
   boolean resetparams;
+  float[] stime;
   
   public Display() {
     super();
@@ -24,6 +25,8 @@ public class Display {
     object = SB;
     x1=x2=x3=x4=x5=x6=810;
     resetparams=true;
+    stime = new float[4];
+    for (int i = 0; i < 4; i++) stime[i]=random(TWO_PI);
   }
   
   void displaySetup(){
@@ -45,6 +48,7 @@ public class Display {
     if(type == LAB){
       setupLab();
     }
+    displayUpdate();
   }
   
   void displayUpdate(){
@@ -82,33 +86,10 @@ public class Display {
   void homeSetup(){
     Stage.softBodies.clear();
     Stage.rigidBodies.clear();
-    fill(#FFF07D);
-    rect(0,0,1000,100);
-    fill(#FFB491);
-    rect(0,100,500,250);
-    fill(#96E1FF);
-    rect(500,100,500,250);
-    fill(#46FF50);
-    rect(0,350,500,250);
-    fill(#FF78FA);
-    rect(500,350,500,250);
-    fill(0);
-    textAlign(CENTER);
-    textSize(32);
-    text("Springing into Action", 500, 50);
-    textSize(12);
-    text("by Jerry Liang, Maxwell Zen", 500, 75);
-    textSize(50);
-    text("Soft Body", 250, 245);
-    text("Balloon", 750, 245);
-    text("Soft Bodies", 250, 465);
-    text("and Balloons", 250, 535);
-    text("Lab", 250, 495);
   }
   
   void homeUpdate(){
-    Stage.softBodies.clear();
-    Stage.rigidBodies.clear();
+    float time = (millis())/1000.0;
     fill(#FFF07D);
     rect(0,0,1000,100);
     fill(#FFF07D);
@@ -130,11 +111,11 @@ public class Display {
     textSize(12);
     text("by Jerry Liang, Maxwell Zen", 500, 75);
     textSize(50);
-    text("Soft Body", 250, 245);
-    text("Balloon", 750, 245);
-    text("Soft Bodies", 250, 465);
-    text("and Balloons", 250, 535);
-    text("Lab", 750, 495);
+    text("Soft Body", 250, 245+10*sin(time-stime[0]));
+    text("Balloon", 750, 245+10*sin(time-stime[1]));
+    text("Soft Bodies", 250, 465+10*sin(time-stime[2]));
+    text("and Balloons", 250, 535+10*sin(time-stime[2]));
+    text("Lab", 750, 495+10*sin(time-stime[3]));
   }
   
   void setup1() {
@@ -187,11 +168,8 @@ public class Display {
   void setup3() {
     Stage.softBodies.clear();
     Stage.rigidBodies.clear();
-    //addSoftBody(25, 25, 200, 300, 1, 70);
-    //addBalloon(10, 7500, 10, 500, 300, 50);
     addSoftBody(0.8*750,25, 100, 200, 1, 80);
     addBalloon(10, 7500, 10, 0.8*200, 175, 50);
-    //addRigidBody(new float[][] {{0, 400}, {300, 420}, {300, 500}, {0, 500}});
     addRigidBody(new float[] {0.8*51,157,0.8*81,148,0.8*252,443,0.8*212,460});
     addRigidBody(new float[] {0.8*212,460,0.8*252,443,0.8*500,519,0.8*500,550});
     addRigidBody(new float[] {0.8*500,550,0.8*500,519,0.8*781,436,0.8*815,456});
@@ -212,35 +190,7 @@ public class Display {
   void setupLab() {
     Stage.softBodies.clear();
     Stage.rigidBodies.clear();
-    drawButtons();
-    noStroke();
-    fill(255);
-    rect(800, 0, 200, 600);
-    stroke(0);
-    fill(#469BFF);
-    rect(825 + 5,25,40,40);
-    fill(0);
-    textSize(12);
-    textAlign(CENTER);
-    text("SB", 845 + 5, 50);
-    fill(#469BFF);
-    rect(825 + 5,25,40,40);
-    fill(0);
-    textSize(12);
-    textAlign(CENTER);
-    text("SB", 845 + 5, 50);
-    fill(#469BFF);
-    rect(875 + 5,25,40,40);
-    fill(0);
-    textSize(12);
-    textAlign(CENTER);
-    text("B", 895 + 5, 50);
-    fill(#469BFF);
-    rect(925 + 5,25,40,40);
-    fill(0);
-    textSize(12);
-    textAlign(CENTER);
-    text("RB", 945 + 5, 50);
+    x1=x2=810;
   }
   
   void updateLab() {
