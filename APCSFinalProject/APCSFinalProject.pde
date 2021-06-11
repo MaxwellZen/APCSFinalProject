@@ -138,7 +138,32 @@ void keyPressed(){
         if(mouseY + d.cwidth + 5 > height){
           y = height - d.cradius - 5;
         }
-        addRigidBody(new float[][]{{mouseX, y}, {mouseX + d.clength, y}, {mouseX + d.clength, y + d.cwidth}, {mouseX, y + d.cwidth}});
+        boolean overlap = false;
+        ArrayList<Point> vertices = new ArrayList<Point>(0);
+        vertices.add(new Point(mouseX, y));
+        vertices.add(new Point(mouseX + d.clength, y));
+        vertices.add(new Point(mouseX + d.clength, y + d.cwidth));
+        vertices.add(new Point(mouseX, y + d.cwidth));
+        for(SoftBody sb : Stage.softBodies){
+          for(Particle p0 : sb.particleArr){
+            Point p = p0.cor;
+            boolean inHull = true;
+            for (int i = 0; i < vertices.size(); i++) {
+              Point p1 = vertices.get(i); 
+              Point p2 = vertices.get((i+1)%vertices.size());
+              Point p3 = vertices.get((i+2)%vertices.size());
+              if (p1.orientation(p2, p)!=0 && p1.orientation(p2, p)!=p1.orientation(p2, p3)) inHull=false;
+            }
+            if(inHull == true){
+              overlap = true;
+            }
+          }
+        }
+        
+        if(!overlap){
+          addRigidBody(new float[][]{{mouseX, y}, {mouseX + d.clength, y}, {mouseX + d.clength, y + d.cwidth}, {mouseX, y + d.cwidth}});
+        }
+    
       }
     }
   }
