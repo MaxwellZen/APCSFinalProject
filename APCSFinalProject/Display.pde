@@ -8,7 +8,7 @@ final static int LAB = 4;
 public class Display {
   
   int type;
-  float sbSpringConstant, sbSpringDampening, stageGravity, particleMass, x1, x2, x3, x4, x5, x6;
+  float x1, x2, x3, x4, x5, x6;
   
   public Display() {
     super();
@@ -51,14 +51,10 @@ public class Display {
     Stage.rigidBodies.clear();
     addSoftBody(25, 25, 200, 300, 1, 70);
     addBalloon(10, 7500, 10, 500, 300, 50);
-    sbSpringConstant = 70;
-    x1 = 810+sbSpringConstant*180/250;
-    sbSpringDampening=0.5;
-    x2 = 810+sbSpringDampening*180;
-    stageGravity = 100;
-    x3 = 810+stageGravity*180/400;
-    particleMass=0.1;
-    x4 = 810+(particleMass-0.05)*180;
+    x1 = 810+70.0*180/250;
+    x2 = 810+0.5*180;
+    x3 = 810+100.0*180/400;
+    x4 = 810+(0.1-0.05)*180;
     x5 = 810+1.0*180/5;
     x6 = 810+1.0*180/5;
     addRigidBody(new float[][] {{0, 400}, {300, 420}, {300, 500}, {0, 500}});
@@ -70,29 +66,28 @@ public class Display {
     if (mousePressed && mouseX>800) {
       if (abs(mouseY-73)<=10) {
         x1 = min(990, max(810, mouseX));
-        sbSpringConstant = (x1 - 810)*250/180;
+        float temp = (x1 - 810)*250/180;
         for (SoftBody sb : Stage.softBodies)
           for (Spring s : sb.springArr)
-            s.springConstant = sbSpringConstant;
+            s.springConstant = temp;
       }
       if (abs(mouseY-138)<=10) {
         x2 = min(990, max(810, mouseX));
-        sbSpringDampening = (x2-810)/180;
+        float temp = (x2-810)/180;
         for (SoftBody sb : Stage.softBodies)
           for (Spring s : sb.springArr)
-            s.dampening = sbSpringDampening;
+            s.dampening = temp;
       }
       if (abs(mouseY-203)<=10) {
         x3 = min(990, max(810, mouseX));
-        stageGravity = (x3-810)*400/180;
-        Stage.updateGravity(stageGravity);
+        Stage.updateGravity((x3-810)*400/180);
       }
       if (abs(mouseY-268)<=10) {
         x4 = min(990, max(810, mouseX));
-        particleMass = 0.05 + (x4-810)/180;
+        float temp = 0.05 + (x4-810)/180;
         for (SoftBody sb : Stage.softBodies)
           for (Particle p : sb.particleArr)
-            p.mass=particleMass;
+            p.mass=temp;
       }
       if (abs(mouseY-333)<=10) {
         x5 = min(990, max(810, mouseX));
@@ -204,12 +199,20 @@ public class Display {
     addSoftBody(200, 480, 600, 100, 1, 70);
     fill(#FFF07D);
     rect(25,25,100,40);
+    fill(0);
+    textSize(20);
+    textAlign(CENTER);
+    text("HOME", 75, 50);
   }
   
   void update1() {
     updateSoftBodies();
     fill(#FFA028);
     rect(25,25,100,40);
+    fill(0);
+    textSize(20);
+    textAlign(CENTER);
+    text("HOME", 75, 50);
   }
 
   void setup2() {
@@ -219,6 +222,10 @@ public class Display {
     addBalloon(20, 10000, 50, 500, 300, 100);
     fill(#FFA028);
     rect(25,25,100,40);
+    fill(0);
+    textSize(20);
+    textAlign(CENTER);
+    text("HOME", 75, 50);
   }
   
   void update2() {
@@ -226,6 +233,10 @@ public class Display {
     displayRigidBodies();
     fill(#FFA028);
     rect(25,25,100,40);
+    fill(0);
+    textSize(20);
+    textAlign(CENTER);
+    text("HOME", 75, 50);
   }
   
   void setup3() {
@@ -236,6 +247,10 @@ public class Display {
     addRigidBody(new float[][] {{0, 400}, {300, 420}, {300, 500}, {0, 500}});
     fill(#FFA028);
     rect(25,25,100,40);
+    fill(0);
+    textSize(20);
+    textAlign(CENTER);
+    text("HOME", 75, 50);
   }
   
   void update3() {
@@ -243,6 +258,10 @@ public class Display {
     displayRigidBodies();
     fill(#FFA028);
     rect(25,25,100,40);
+    fill(0);
+    textSize(20);
+    textAlign(CENTER);
+    text("HOME", 75, 50);
   }
   
   void setupLab() {
@@ -250,11 +269,19 @@ public class Display {
     Stage.rigidBodies.clear();
     fill(#FFA028);
     rect(25,25,100,40);
+    fill(0);
+    textSize(20);
+    textAlign(CENTER);
+    text("HOME", 75, 50);
   }
   
   void updateLab() {
     fill(#FFA028);
     rect(25,25,100,40);
+    fill(0);
+    textSize(20);
+    textAlign(CENTER);
+    text("HOME", 75, 50);
   }
   
   void changeType(int VALUE){
