@@ -322,6 +322,16 @@ public class Display {
     textSize(12);
     textAlign(CENTER);
     text("RB", 945 + 5, 50);
+    
+    if(object == SB){
+      //DISPLAY LENGTH WIDTH SLIDER
+    }
+    if(object == B){
+      //DISPLAY RADIUS SLIDER
+    }
+    if(object == RB){
+      //DISPLAY LENGTH WIDTH SLIDER
+    }
   }
   
   void changeType(int VALUE){
