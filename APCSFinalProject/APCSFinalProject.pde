@@ -2,10 +2,13 @@ import java.io.*;
 import java.lang.*;
 import java.util.*;
 Display d;
+PFont sen;
 
 void setup() {
   frameRate(200);
   size(1000, 600);
+  sen = createFont("Sen-Regular.ttf", 6);
+  textFont(sen);
   d = new Display();
   //d.changeType(-1);
   d.displaySetup();
