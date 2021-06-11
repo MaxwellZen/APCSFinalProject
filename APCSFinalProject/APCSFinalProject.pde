@@ -10,7 +10,7 @@ void setup() {
   sen = createFont("Sen-Regular.ttf", 6);
   textFont(sen);
   d = new Display();
-  //d.changeType(-1);
+  d.changeType(-1);
   d.displaySetup();
   Stage.updateTime();
   Stage.updateGravity(100);
@@ -114,8 +114,9 @@ void updateSoftBodies() {
       b.updatePressure();
       b.applyAirPressure();
     }
-    s.display();
   }
+  updateParticleCollide();
+  for (SoftBody s : Stage.softBodies) s.display();
 }
 
 void addBalloon(float m, float a, int n, float x, float y, float k) {
@@ -131,13 +132,10 @@ void displayRigidBodies() {
 }
 
 void updateParticleCollide(){
-  for(int i = 0; i < Stage.softBodies.size() - 1; i++){
-    for(int j = i; j < Stage.softBodies.size(); j++){
-      for(Particle p1 : Stage.softBodies.get(i).particleArr){
-        for(Particle p2 : Stage.softBodies.get(j).particleArr){
-          p1.collideParticle(p2);
-        }
-      }
-    }
-  }
+  for(int i = 0; i < Stage.softBodies.size(); i++)
+    for(int j = 0; j <= i; j++)
+      for(Particle p1 : Stage.softBodies.get(i).particleArr)
+        for(Particle p2 : Stage.softBodies.get(j).particleArr)
+          if (p1.getYcor()>p2.getYcor()) p1.collideParticle(p2);
+          else p2.collideParticle(p1);
 }

@@ -46,14 +46,8 @@ public class SoftBody{
       p.applyAirFriction();
       p.updatePosition();
       p.bounceFloor();
-      for(int j = 0; j < i; j++){
-        Particle p2 = particleArr.get(j);
-        if (p.getYcor()>p2.getYcor()) p.collideParticle(p2);
-        else p2.collideParticle(p);
-      }
       for (RigidBody r : Stage.rigidBodies) r.collide(p);
     }
-    updateParticleCollide();
   }
 
   public void display(){
