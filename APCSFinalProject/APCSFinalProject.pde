@@ -87,12 +87,15 @@ void mouseClicked(){
     }
     if((mouseX >= 830 && mouseX<= 870) && (mouseY >= 25 && mouseY<= 65)){
       d.object = SB;
+      if (d.type==LAB) d.x1=d.x2=810;
     }
     if((mouseX >= 880 && mouseX<= 920) && (mouseY >= 25 && mouseY<= 65)){
       d.object = B;
+      if (d.type==LAB) d.x1=d.x2=810;
     }
     if((mouseX >= 930 && mouseX<= 970) && (mouseY >= 25 && mouseY<= 65)){
       d.object = RB;
+      if (d.type==LAB) d.x1=d.x2=810;
     }
   }
 }
@@ -128,7 +131,7 @@ void keyPressed(){
         if(mouseY + d.cradius + 5 > height){
           y = height - d.cradius - 5;
         }
-        addBalloon(10, sq(d.cradius) * PI, 20, mouseX, y, 50);
+        addBalloon(10, sq(d.cradius) * PI, 15, mouseX, y, 50);
       }
       if(d.object == RB){
         float y = mouseY;
