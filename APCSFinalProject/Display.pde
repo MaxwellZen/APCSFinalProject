@@ -58,7 +58,7 @@ public class Display {
     stageGravity = 100;
     x3 = 810+stageGravity*180/400;
     particleMass=0.1;
-    x4 = 810+particleMass*180;
+    x4 = 810+(particleMass-0.05)*180;
     addRigidBody(new float[][] {{0, 400}, {300, 420}, {300, 500}, {0, 500}});
   }
   
@@ -87,7 +87,7 @@ public class Display {
       }
       if (abs(mouseY-268)<=10) {
         x4 = min(990, max(810, mouseX));
-        particleMass = (x4-810)/180;
+        particleMass = 0.05 + (x4-810)/180;
         for (SoftBody sb : Stage.softBodies)
           for (Particle p : sb.particleArr)
             p.mass=particleMass;
