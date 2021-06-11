@@ -16,11 +16,14 @@ public class Display {
   float cradius;
   float clength;
   float cwidth;
+  boolean resetparams;
   
   public Display() {
     super();
     type = HOME;
     object = SB;
+    x1=x2=x3=x4=x5=x6=810;
+    resetparams=true;
   }
   
   void displaySetup(){
@@ -64,7 +67,8 @@ public class Display {
     Stage.rigidBodies.clear();
     addSoftBody(25, 25, 200, 300, 1, 70);
     addBalloon(10, 7500, 10, 500, 300, 50);
-    setDefaultParameters();
+    if (resetparams) setDefaultParameters();
+    resetparams=true;
     addRigidBody(new float[][] {{0, 400}, {300, 420}, {300, 500}, {0, 500}});
   }
   
@@ -73,106 +77,6 @@ public class Display {
     displayRigidBodies();
     updateSliders();
     drawSliders();
-  }
-  
-  void setDefaultParameters() {
-    x1 = 810+70.0*180/250;
-    x2 = 810+0.5*180;
-    x3 = 810+100.0*180/400;
-    x4 = 810+(0.1-0.05)*180;
-    x5 = 810+1.0*180/5;
-    x6 = 810+1.0*180/5;
-  }
-  
-  void updateSliders() {
-    if (mousePressed && mouseX>800) {
-      if (abs(mouseY-73)<=10) {
-        x1 = min(990, max(810, mouseX));
-        float temp = (x1 - 810)*250/180;
-        for (SoftBody sb : Stage.softBodies)
-          for (Spring s : sb.springArr)
-            s.springConstant = temp;
-      }
-      if (abs(mouseY-138)<=10) {
-        x2 = min(990, max(810, mouseX));
-        float temp = (x2-810)/180;
-        for (SoftBody sb : Stage.softBodies)
-          for (Spring s : sb.springArr)
-            s.dampening = temp;
-      }
-      if (abs(mouseY-203)<=10) {
-        x3 = min(990, max(810, mouseX));
-        Stage.updateGravity((x3-810)*400/180);
-      }
-      if (abs(mouseY-268)<=10) {
-        x4 = min(990, max(810, mouseX));
-        float temp = 0.05 + (x4-810)/180;
-        for (SoftBody sb : Stage.softBodies)
-          for (Particle p : sb.particleArr)
-            p.mass=temp;
-      }
-      if (abs(mouseY-333)<=10) {
-        x5 = min(990, max(810, mouseX));
-        Stage.updateAirFriction((x5-810)*5/180);
-      }
-      if (abs(mouseY-398)<=10) {
-        x6 = min(990, max(810, mouseX));
-        Stage.updateAtmPressure((x6-810)*5/180);
-      }
-    }
-  }
-  
-  void drawSliders() {
-    textAlign(CENTER,BOTTOM);
-    noStroke();
-    fill(255);
-    rect(800, 0, 200, 600);
-    fill(0);
-    textSize(18);
-    text("Spring Constant", 900, 50);
-    rect(810, 70, 180, 6);
-    fill(180);
-    circle(x1, 73, 20);
-    fill(0);
-    text("Spring Dampening", 900, 115);
-    rect(810, 135, 180, 6);
-    fill(180);
-    circle(x2, 138, 20);
-    fill(0);
-    text("Gravity", 900, 180);
-    rect(810, 200, 180, 6);
-    fill(180);
-    circle(x3, 203, 20);
-    fill(0);
-    text("Particle Mass", 900, 245);
-    rect(810, 265, 180, 6);
-    fill(180);
-    circle(x4, 268, 20);
-    fill(0);
-    text("Air Resistance", 900, 310);
-    rect(810, 330, 180, 6);
-    fill(180);
-    circle(x5, 333, 20);
-    fill(0);
-    text("Atm Pressure", 900, 375);
-    rect(810, 395, 180, 6);
-    fill(180);
-    circle(x6, 398, 20);
-  }
-  
-  void drawButtons() {
-    fill(#FFA028);
-    rect(25,25,100,40);
-    fill(0);
-    textSize(20);
-    textAlign(CENTER);
-    text("HOME", 75, 50);
-    fill(#F578FF);
-    rect(25,75,100,40);
-    fill(0);
-    textSize(20);
-    textAlign(CENTER);
-    text("RESET", 75, 100);
   }
   
   void homeSetup(){
@@ -236,13 +140,22 @@ public class Display {
   void setup1() {
     Stage.softBodies.clear();
     Stage.rigidBodies.clear();
-    addSoftBody(400, 25, 200, 300, 1, 70);
-    addSoftBody(200, 480, 600, 100, 1, 70);
-    setDefaultParameters();
+    addSoftBody(52, 21, 95, 104, 1, 70);
+    addRigidBody(new float[][] {{25,151},{189,225},{171,252},{8,173}});
+    addRigidBody(new float[][] {{437,182},{470,190},{433,244},{399,234}});
+    addRigidBody(new float[][] {{271,296},{291,331},{268,341},{243,303}});
+    addRigidBody(new float[][] {{521,315},{557,330},{516,377},{489,364}});
+    addRigidBody(new float[][] {{374,386},{403,432},{370,444},{334,397}});
+    addRigidBody(new float[][] {{605,410},{639,426},{568,540},{531,525}});
+    addRigidBody(new float[][] {{166,600},{221,480},{281,600}});
+    if (resetparams) setDefaultParameters();
+    else updateParams();
+    resetparams=true;
   }
   
   void update1() {
     updateSoftBodies();
+    displayRigidBodies();
     updateSliders();
     drawSliders();
     drawButtons();
@@ -251,14 +164,23 @@ public class Display {
   void setup2() {
     Stage.softBodies.clear();
     Stage.rigidBodies.clear();
-    addBalloon(10, 7500, 10, 500, 300, 50);
-    addBalloon(20, 10000, 50, 500, 300, 100);
-    drawButtons();
+    addRigidBody(new float[] {80,152,118,147,144,264,116,271});
+    addRigidBody(new float[] {116,271,144,264,209,350,190,369});
+    addRigidBody(new float[] {190,369,209,350,300,410,295,430});
+    addRigidBody(new float[] {295,430,300,410,416,432,418,457});
+    addRigidBody(new float[] {418,457,416,432,513,445,520,464});
+    addRigidBody(new float[] {750,352,784,356,707,496,671,494});
+    addBalloon(10, 7500, 10, 200, 60, 100);
+    if (resetparams) setDefaultParameters();
+    else updateParams();
+    resetparams=true;
   }
   
   void update2() {
     updateSoftBodies();
     displayRigidBodies();
+    updateSliders();
+    drawSliders();
     drawButtons();
   }
   
@@ -268,7 +190,9 @@ public class Display {
     addSoftBody(25, 25, 200, 300, 1, 70);
     addBalloon(10, 7500, 10, 500, 300, 50);
     addRigidBody(new float[][] {{0, 400}, {300, 420}, {300, 500}, {0, 500}});
-    drawButtons();
+    if (resetparams) setDefaultParameters();
+    else updateParams();
+    resetparams=true;
   }
   
   void update3() {
@@ -416,4 +340,123 @@ public class Display {
   void changeType(int VALUE){
     type = VALUE;
   }
+  
+  void setDefaultParameters() {
+    x1 = 810+70.0*180/250;
+    x2 = 810+0.5*180;
+    x3 = 810+100.0*180/400;
+    x4 = 810+0.45*(0.1-0.05)*180;
+    x5 = 810+1.0*180/5;
+    x6 = 810+1.0*180/5;
+  }
+  
+  void updateParams() {
+    float temp = (x1 - 810)*250/180;
+    for (SoftBody sb : Stage.softBodies)
+      for (Spring s : sb.springArr)
+        s.springConstant = temp;
+    temp = (x2-810)/180;
+    for (SoftBody sb : Stage.softBodies)
+      for (Spring s : sb.springArr)
+        s.dampening = temp;
+    Stage.updateGravity((x3-810)*400/180);
+    temp = 0.05 + 0.45*(x4-810)/180;
+    for (SoftBody sb : Stage.softBodies)
+      for (Particle p : sb.particleArr)
+        p.mass=temp;
+    Stage.updateAirFriction((x5-810)*5/180);
+    Stage.updateAtmPressure((x6-810)*5/180);
+  }
+  
+  void updateSliders() {
+    if (mousePressed && mouseX>800) {
+      if (abs(mouseY-73)<=10) {
+        x1 = min(990, max(810, mouseX));
+        float temp = 0 + 250*(x1 - 810)/180;
+        for (SoftBody sb : Stage.softBodies)
+          for (Spring s : sb.springArr)
+            s.springConstant = temp;
+      }
+      if (abs(mouseY-138)<=10) {
+        x2 = min(990, max(810, mouseX));
+        float temp = (x2-810)/180;
+        for (SoftBody sb : Stage.softBodies)
+          for (Spring s : sb.springArr)
+            s.dampening = temp;
+      }
+      if (abs(mouseY-203)<=10) {
+        x3 = min(990, max(810, mouseX));
+        Stage.updateGravity(400*(x3-810)/180);
+      }
+      if (abs(mouseY-268)<=10) {
+        x4 = min(990, max(810, mouseX));
+        float temp = 0.05 + 0.45*(x4-810)/180;
+        for (SoftBody sb : Stage.softBodies)
+          for (Particle p : sb.particleArr)
+            p.mass=temp;
+      }
+      if (abs(mouseY-333)<=10) {
+        x5 = min(990, max(810, mouseX));
+        Stage.updateAirFriction((x5-810)*5/180);
+      }
+      if (abs(mouseY-398)<=10) {
+        x6 = min(990, max(810, mouseX));
+        Stage.updateAtmPressure((x6-810)*5/180);
+      }
+    }
+  }
+  
+  void drawSliders() {
+    textAlign(CENTER,BOTTOM);
+    noStroke();
+    fill(255);
+    rect(800, 0, 200, 600);
+    fill(0);
+    textSize(18);
+    text("Spring Constant", 900, 50);
+    rect(810, 70, 180, 6);
+    fill(180);
+    circle(x1, 73, 20);
+    fill(0);
+    text("Spring Dampening", 900, 115);
+    rect(810, 135, 180, 6);
+    fill(180);
+    circle(x2, 138, 20);
+    fill(0);
+    text("Gravity", 900, 180);
+    rect(810, 200, 180, 6);
+    fill(180);
+    circle(x3, 203, 20);
+    fill(0);
+    text("Particle Mass", 900, 245);
+    rect(810, 265, 180, 6);
+    fill(180);
+    circle(x4, 268, 20);
+    fill(0);
+    text("Air Resistance", 900, 310);
+    rect(810, 330, 180, 6);
+    fill(180);
+    circle(x5, 333, 20);
+    fill(0);
+    text("Atm Pressure", 900, 375);
+    rect(810, 395, 180, 6);
+    fill(180);
+    circle(x6, 398, 20);
+  }
+  
+  void drawButtons() {
+    fill(#FFA028);
+    rect(25,25,100,40);
+    fill(0);
+    textSize(20);
+    textAlign(CENTER);
+    text("HOME", 75, 50);
+    fill(#F578FF);
+    rect(25,75,100,40);
+    fill(0);
+    textSize(20);
+    textAlign(CENTER);
+    text("RESET", 75, 100);
+  }
+  
 }
