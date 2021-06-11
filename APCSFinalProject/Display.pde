@@ -302,16 +302,16 @@ public class Display {
   }
   
   void setDefaultParameters() {
-    x1 = 810+70.0*180/250;
+    x1 = 810+(70.0-30)*180/200;
     x2 = 810+0.5*180;
-    x3 = 810+100.0*180/400;
-    x4 = 810+0.45*(0.1-0.05)*180;
+    x3 = 810+(100.0-20)*180/400;
+    x4 = 810+0.25*(0.1-0.05)*180;
     x5 = 810+1.0*180/5;
     x6 = 810+1.0*180/5;
   }
   
   void updateParams() {
-    float temp = (x1 - 810)*250/180;
+    float temp = 30 + 200*(x1 - 810)/180;
     for (SoftBody sb : Stage.softBodies)
       for (Spring s : sb.springArr)
         s.springConstant = temp;
@@ -319,8 +319,8 @@ public class Display {
     for (SoftBody sb : Stage.softBodies)
       for (Spring s : sb.springArr)
         s.dampening = temp;
-    Stage.updateGravity((x3-810)*400/180);
-    temp = 0.05 + 0.45*(x4-810)/180;
+    Stage.updateGravity(20 + 400*(x3-810)/180);
+    temp = 0.05 + 0.25*(x4-810)/180;
     for (SoftBody sb : Stage.softBodies)
       for (Particle p : sb.particleArr)
         p.mass=temp;
@@ -332,7 +332,7 @@ public class Display {
     if (mousePressed && mouseX>800) {
       if (abs(mouseY-73)<=10) {
         x1 = min(990, max(810, mouseX));
-        float temp = 0 + 250*(x1 - 810)/180;
+        float temp = 30 + 200*(x1 - 810)/180;
         for (SoftBody sb : Stage.softBodies)
           for (Spring s : sb.springArr)
             s.springConstant = temp;
@@ -346,11 +346,11 @@ public class Display {
       }
       if (abs(mouseY-203)<=10) {
         x3 = min(990, max(810, mouseX));
-        Stage.updateGravity(400*(x3-810)/180);
+        Stage.updateGravity(20 + 400*(x3-810)/180);
       }
       if (abs(mouseY-268)<=10) {
         x4 = min(990, max(810, mouseX));
-        float temp = 0.05 + 0.45*(x4-810)/180;
+        float temp = 0.05 + 0.25*(x4-810)/180;
         for (SoftBody sb : Stage.softBodies)
           for (Particle p : sb.particleArr)
             p.mass=temp;
@@ -361,7 +361,7 @@ public class Display {
       }
       if (abs(mouseY-398)<=10) {
         x6 = min(990, max(810, mouseX));
-        Stage.updateAtmPressure((x6-810)*5/180);
+        Stage.updateAtmPressure((x6-810)*50/180);
       }
     }
   }

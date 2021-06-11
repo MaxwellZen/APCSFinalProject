@@ -54,6 +54,7 @@ public class Balloon extends SoftBody{
   public void updatePressure(){
     float gasConstant = 5000000;
     internalPressure = mols * gasConstant / area;
+    internalPressure -= Stage.atmPressure*1000;
   }
   
   public void applyAirPressure(){
