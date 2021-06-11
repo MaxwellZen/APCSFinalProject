@@ -85,6 +85,15 @@ void mouseClicked(){
     if((mouseX >= 25 && mouseX<= 125) && (mouseY >= 75 && mouseY<= 115)){
       d.displaySetup();
     }
+    if((mouseX >= 830 && mouseX<= 870) && (mouseY >= 25 && mouseY<= 65)){
+      d.object = SB;
+    }
+    if((mouseX >= 880 && mouseX<= 920) && (mouseY >= 25 && mouseY<= 65)){
+      d.object = B;
+    }
+    if((mouseX >= 930 && mouseX<= 970) && (mouseY >= 25 && mouseY<= 65)){
+      d.object = RB;
+    }
   }
 }
 
