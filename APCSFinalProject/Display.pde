@@ -11,11 +11,13 @@ final static int B = 0;
 public class Display {
   
   int type;
+  int object;
   float x1, x2, x3, x4, x5, x6;
   
   public Display() {
     super();
     type = HOME;
+    object = SB;
   }
   
   void displaySetup(){
@@ -271,29 +273,29 @@ public class Display {
     rect(800, 0, 200, 600);
     stroke(0);
     fill(#469BFF);
-    rect(825,25,40,40);
+    rect(825 + 5,25,40,40);
     fill(0);
     textSize(12);
     textAlign(CENTER);
-    text("SB", 845, 50);
+    text("SB", 845 + 5, 50);
     fill(#469BFF);
-    rect(825,25,40,40);
+    rect(825 + 5,25,40,40);
     fill(0);
     textSize(12);
     textAlign(CENTER);
-    text("SB", 845, 50);
+    text("SB", 845 + 5, 50);
     fill(#469BFF);
-    rect(875,25,40,40);
+    rect(875 + 5,25,40,40);
     fill(0);
     textSize(12);
     textAlign(CENTER);
-    text("B", 895, 50);
+    text("B", 895 + 5, 50);
     fill(#469BFF);
-    rect(925,25,40,40);
+    rect(925 + 5,25,40,40);
     fill(0);
     textSize(12);
     textAlign(CENTER);
-    text("RB", 945, 50);
+    text("RB", 945 + 5, 50);
   }
   
   void updateLab() {
@@ -303,23 +305,23 @@ public class Display {
     stroke(0);
     drawButtons();
     fill(#469BFF);
-    rect(825,25,40,40);
+    rect(825 + 5,25,40,40);
     fill(0);
     textSize(12);
     textAlign(CENTER);
-    text("SB", 845, 50);
+    text("SB", 845 + 5, 50);
     fill(#469BFF);
-    rect(875,25,40,40);
+    rect(875 + 5,25,40,40);
     fill(0);
     textSize(12);
     textAlign(CENTER);
-    text("B", 895, 50);
+    text("B", 895 + 5, 50);
     fill(#469BFF);
-    rect(925,25,40,40);
+    rect(925 + 5,25,40,40);
     fill(0);
     textSize(12);
     textAlign(CENTER);
-    text("RB", 945, 50);
+    text("RB", 945 + 5, 50);
   }
   
   void changeType(int VALUE){
