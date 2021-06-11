@@ -4,6 +4,9 @@ final static int DEMO1 = 1;
 final static int DEMO2 = 2;
 final static int DEMO3 = 3;
 final static int LAB = 4;
+final static int SB = 1;
+final static int RB = -1;
+final static int B = 0;
 
 public class Display {
   
@@ -44,6 +47,8 @@ public class Display {
       update2();
     if(type == DEMO3)
       update3();
+    if(type == LAB)
+      updateLab();
   }
   
   void testSetup() {
@@ -303,6 +308,10 @@ public class Display {
   void setupLab() {
     Stage.softBodies.clear();
     Stage.rigidBodies.clear();
+    noStroke();
+    fill(255);
+    rect(800, 0, 200, 600);
+    stroke(0);
     fill(#FFA028);
     rect(25,25,100,40);
     fill(0);
@@ -320,7 +329,11 @@ public class Display {
   void updateLab() {
     fill(#FFA028);
     rect(25,25,100,40);
+    noStroke();
+    fill(255);
+    rect(800, 0, 200, 600);
     fill(0);
+    stroke(0);
     textSize(20);
     textAlign(CENTER);
     text("HOME", 75, 50);
