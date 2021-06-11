@@ -39,6 +39,9 @@ public class Display {
     if(type == DEMO3){
       setup3();
     }
+    if(type == LAB){
+      setupLab();
+    }
   }
   
   void displayUpdate(){
