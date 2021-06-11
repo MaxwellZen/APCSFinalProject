@@ -8,7 +8,7 @@ final static int LAB = 4;
 public class Display {
   
   int type;
-  float sbSpringConstant, sbSpringDampening, x1, x2;
+  float sbSpringConstant, sbSpringDampening, stageGravity, x1, x2, x3;
   
   public Display() {
     super();
@@ -55,6 +55,8 @@ public class Display {
     x1 = 810+sbSpringConstant*180/250;
     sbSpringDampening=0.5;
     x2 = 810+sbSpringDampening*180;
+    stageGravity = 100;
+    x3 = 810+stageGravity*180/400;
     addRigidBody(new float[][] {{0, 400}, {300, 420}, {300, 500}, {0, 500}});
   }
   
@@ -62,19 +64,24 @@ public class Display {
     updateSoftBodies();
     displayRigidBodies();
     if (mousePressed) {
-      if (dist(mouseX, mouseY, x1, 73)<=10) {
+      if (abs(mouseY-73)<=10) {
         x1 = min(990, max(810, mouseX));
         sbSpringConstant = (x1 - 810)*250/180;
         for (SoftBody sb : Stage.softBodies)
           for (Spring s : sb.springArr)
             s.springConstant = sbSpringConstant;
       }
-      if (dist(mouseX, mouseY, x2, 138)<=10) {
+      if (abs(mouseY-138)<=10) {
         x2 = min(990, max(810, mouseX));
         sbSpringDampening = (x2-810)/180;
         for (SoftBody sb : Stage.softBodies)
           for (Spring s : sb.springArr)
             s.dampening = sbSpringDampening;
+      }
+      if (abs(mouseY-203)<=10) {
+        x3 = min(990, max(810, mouseX));
+        stageGravity = (x3-810)*400/180;
+        Stage.updateGravity(stageGravity);
       }
     }
     noStroke();
@@ -82,7 +89,7 @@ public class Display {
     rect(800, 0, 200, 600);
     fill(0);
     textSize(18);
-    text("Spring Constant", 830, 45);
+    text("Spring Constant", 830, 50);
     rect(810, 70, 180, 6);
     fill(180);
     circle(x1, 73, 20);
@@ -91,6 +98,11 @@ public class Display {
     rect(810, 135, 180, 6);
     fill(180);
     circle(x2, 138, 20);
+    fill(0);
+    text("Gravity", 870, 180);
+    rect(810, 200, 180, 6);
+    fill(180);
+    circle(x3, 203, 20);
   }
   
   void homeSetup(){
