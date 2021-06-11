@@ -60,10 +60,11 @@ public class Balloon extends SoftBody{
     for(int i = 0; i < particleArr.size(); i++){
       Particle p0 = particleArr.get(i);
       Particle p1 = particleArr.get(((i+1) % particleArr.size()));
+      Point diff = p1.cor.minus(p0.cor).normalize();
       float dist = p0.getCor().dist(p1.getCor());
       float pressure = internalPressure / dist;
-      p0.applyForce(p1.getCor().minus(p0.getCor()).scale(pressure / dist).getY(), p1.getCor().minus(p0.getCor()).scale(- 1 * pressure / dist).getX());
-      p1.applyForce(p1.getCor().minus(p0.getCor()).scale(pressure / dist).getY(), p1.getCor().minus(p0.getCor()).scale(- 1 * pressure / dist).getX());
+      p0.applyForce(diff.scale(pressure).getY(), diff.scale(- 1 * pressure).getX());
+      p1.applyForce(diff.scale(pressure).getY(), diff.scale(- 1 * pressure).getX());
     }
   }
   
