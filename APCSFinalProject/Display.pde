@@ -8,7 +8,7 @@ final static int LAB = 4;
 public class Display {
   
   int type;
-  float sbSpringConstant, sbSpringDampening, stageGravity, particleMass, x1, x2, x3, x4;
+  float sbSpringConstant, sbSpringDampening, stageGravity, particleMass, x1, x2, x3, x4, x5, x6;
   
   public Display() {
     super();
@@ -59,6 +59,8 @@ public class Display {
     x3 = 810+stageGravity*180/400;
     particleMass=0.1;
     x4 = 810+(particleMass-0.05)*180;
+    x5 = 810+1.0*180/5;
+    x6 = 810+1.0*180/5;
     addRigidBody(new float[][] {{0, 400}, {300, 420}, {300, 500}, {0, 500}});
   }
   
@@ -92,6 +94,14 @@ public class Display {
           for (Particle p : sb.particleArr)
             p.mass=particleMass;
       }
+      if (abs(mouseY-333)<=10) {
+        x5 = min(990, max(810, mouseX));
+        Stage.updateAirFriction((x5-810)*5/180);
+      }
+      if (abs(mouseY-398)<=10) {
+        x6 = min(990, max(810, mouseX));
+        Stage.updateAtmPressure((x6-810)*5/180);
+      }
     }
     noStroke();
     fill(255);
@@ -112,10 +122,21 @@ public class Display {
     rect(810, 200, 180, 6);
     fill(180);
     circle(x3, 203, 20);
+    fill(0);
     text("Particle Mass", 830, 245);
     rect(810, 265, 180, 6);
     fill(180);
     circle(x4, 268, 20);
+    fill(0);
+    text("Air Resistance", 830, 310);
+    rect(810, 330, 180, 6);
+    fill(180);
+    circle(x5, 333, 20);
+    fill(0);
+    text("Atm Pressure", 840, 375);
+    rect(810, 395, 180, 6);
+    fill(180);
+    circle(x6, 398, 20);
   }
   
   void homeSetup(){
