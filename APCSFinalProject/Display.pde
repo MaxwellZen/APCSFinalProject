@@ -331,13 +331,73 @@ public class Display {
     text("RB", 945 + 5, 50);
     
     if(object == SB){
-      //DISPLAY LENGTH WIDTH SLIDER
+      float clength=0, cwidth=0;
+      if (mousePressed && mouseX>800) {
+        if (abs(mouseY-138)<=10) {
+          x1 = min(990, max(810, mouseX));
+        }
+        if (abs(mouseY-203)<=10) {
+          x2 = min(990, max(810, mouseX));
+        }
+      }
+      clength = 50 + 450*(x1-810)/180;
+      cwidth = 50 + 350*(x2-810)/180;
+      textAlign(CENTER,BOTTOM);
+      noStroke();
+      textSize(18);
+      fill(0);
+      text("Length: " + clength, 900, 115);
+      rect(810, 135, 180, 6);
+      fill(180);
+      circle(x1, 138, 20);
+      fill(0);
+      text("Width: " + cwidth, 900, 180);
+      rect(810, 200, 180, 6);
+      fill(180);
+      circle(x2, 203, 20);
     }
     if(object == B){
-      //DISPLAY RADIUS SLIDER
+      float cradius=0;
+      if (mousePressed && mouseX>800) {
+        if (abs(mouseY-138)<=10) {
+          x1 = min(990, max(810, mouseX));
+        }
+      }
+      cradius = 20 + 130*(x1-810)/180;
+      textAlign(CENTER,BOTTOM);
+      noStroke();
+      textSize(18);
+      fill(0);
+      text("Radius: " + cradius, 900, 115);
+      rect(810, 135, 180, 6);
+      fill(180);
+      circle(x1, 138, 20);
     }
     if(object == RB){
-      //DISPLAY LENGTH WIDTH SLIDER
+      float clength=0, cwidth=0;
+      if (mousePressed && mouseX>800) {
+        if (abs(mouseY-138)<=10) {
+          x1 = min(990, max(810, mouseX));
+        }
+        if (abs(mouseY-203)<=10) {
+          x2 = min(990, max(810, mouseX));
+        }
+      }
+      clength = 50 + 450*(x1-810)/180;
+      cwidth = 50 + 350*(x2-810)/180;
+      textAlign(CENTER,BOTTOM);
+      noStroke();
+      textSize(18);
+      fill(0);
+      text("Length: " + clength, 900, 115);
+      rect(810, 135, 180, 6);
+      fill(180);
+      circle(x1, 138, 20);
+      fill(0);
+      text("Width: " + cwidth, 900, 180);
+      rect(810, 200, 180, 6);
+      fill(180);
+      circle(x2, 203, 20);
     }
   }
   
