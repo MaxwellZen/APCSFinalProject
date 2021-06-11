@@ -77,6 +77,12 @@ void mouseClicked(){
       }  
     }
   }
+  else{
+    if((mouseX >= 25 && mouseX<= 125) && (mouseY >= 25 && mouseX<= 65)){
+      d.changeType(HOME);
+      d.displaySetup();
+    }
+  }
 }
 
 void keyPressed(){
