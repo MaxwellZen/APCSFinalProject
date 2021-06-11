@@ -8,7 +8,7 @@ final static int LAB = 4;
 public class Display {
   
   int type;
-  float sbSpringConstant, x;
+  float sbSpringConstant, sbSpringDampening, x1, x2;
   
   public Display() {
     super();
@@ -34,21 +34,16 @@ public class Display {
   }
   
   void displayUpdate(){
-    if(type == TEST){
+    if(type == TEST)
       testUpdate();
-    }
-    if(type == HOME){
+    if(type == HOME)
       homeUpdate();
-    }
-    if(type == DEMO1){
+    if(type == DEMO1)
       update1();
-    }
-    if(type == DEMO2){
+    if(type == DEMO2)
       update2();
-    }
-    if(type == DEMO3){
+    if(type == DEMO3)
       update3();
-    }
   }
   
   void testSetup() {
@@ -57,7 +52,9 @@ public class Display {
     addSoftBody(25, 25, 200, 300, 1, 70);
     addBalloon(10, 7500, 10, 500, 300, 50);
     sbSpringConstant = 70;
-    x = 810+sbSpringConstant*180/250;
+    x1 = 810+sbSpringConstant*180/250;
+    sbSpringDampening=0.5;
+    x2 = 810+sbSpringDampening*180;
     addRigidBody(new float[][] {{0, 400}, {300, 420}, {300, 500}, {0, 500}});
   }
   
@@ -65,14 +62,19 @@ public class Display {
     updateSoftBodies();
     displayRigidBodies();
     if (mousePressed) {
-      if (dist(mouseX, mouseY, x, 73)<=10) {
-        x = min(990, max(810, mouseX));
-        sbSpringConstant = (x - 810)*250/180;
-        for (SoftBody sb : Stage.softBodies) {
-          for (Spring s : sb.springArr) {
+      if (dist(mouseX, mouseY, x1, 73)<=10) {
+        x1 = min(990, max(810, mouseX));
+        sbSpringConstant = (x1 - 810)*250/180;
+        for (SoftBody sb : Stage.softBodies)
+          for (Spring s : sb.springArr)
             s.springConstant = sbSpringConstant;
-          }
-        }
+      }
+      if (dist(mouseX, mouseY, x2, 138)<=10) {
+        x2 = min(990, max(810, mouseX));
+        sbSpringDampening = (x2-810)/180;
+        for (SoftBody sb : Stage.softBodies)
+          for (Spring s : sb.springArr)
+            s.dampening = sbSpringDampening;
       }
     }
     noStroke();
@@ -83,7 +85,12 @@ public class Display {
     text("Spring Constant", 830, 45);
     rect(810, 70, 180, 6);
     fill(180);
-    circle(x, 73, 20);
+    circle(x1, 73, 20);
+    fill(0);
+    text("Spring Dampening", 820, 115);
+    rect(810, 135, 180, 6);
+    fill(180);
+    circle(x2, 138, 20);
   }
   
   void homeSetup(){
